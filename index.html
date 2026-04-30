@@ -3,344 +3,169 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Passo Agency</title>
-  <meta name="description" content="The Passo Agency — media agents, working for you. Autonomous programmatic media for Shopify DTC merchants. Coming soon." />
+  <title>The Passo Agency — media agents for Shopify merchants</title>
+  <meta name="description" content="The Passo Agency builds a personalised media strategy from your Shopify and ad-account data, then runs the buys for you. For Shopify direct-to-consumer merchants." />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://passoagency.com/" />
   <meta property="og:title" content="The Passo Agency" />
-  <meta property="og:description" content="Media agents, working for you. Coming soon." />
+  <meta property="og:description" content="A media strategy built from your own sales data. For Shopify direct-to-consumer merchants." />
   <meta property="og:site_name" content="The Passo Agency" />
 
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M4 22 L16 10 L28 22' stroke='%231a1a18' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- GA4 — replace G-XXXXXXXXXX with your Measurement ID -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('consent', 'default', {
-      analytics_storage: 'denied',
-      ad_storage: 'denied',
-      wait_for_update: 500,
-    });
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --background: #f5f4f0;
-      --foreground: #1a1a18;
-      --muted: #6b6b63;
-      --faint: #9a9a8e;
-      --card: #eceae4;
-      --border: #d8d6ce;
-    }
-
-    html, body { height: 100%; }
-
-    body {
-      background: var(--background);
-      color: var(--foreground);
-      font-family: 'Inter', system-ui, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 2rem 1.5rem 6rem;
-    }
-
-    main { max-width: 480px; width: 100%; }
-
-    /* Logo */
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.625rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .logo-mark {
-      width: 28px;
-      height: 28px;
-      flex-shrink: 0;
-    }
-
-    .wordmark {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      color: var(--foreground);
-      line-height: 1;
-    }
-
-    .tagline {
-      font-size: 0.875rem;
-      color: var(--muted);
-      margin-bottom: 3rem;
-      padding-left: 2px;
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin-bottom: 2.5rem;
-    }
-
-    .body-text {
-      font-size: 0.9375rem;
-      line-height: 1.65;
-      color: var(--muted);
-      margin-bottom: 2.5rem;
-    }
-
-    /* Waitlist form */
-    .waitlist-label {
-      font-size: 0.6875rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--faint);
-      margin-bottom: 0.5rem;
-    }
-
-    .waitlist-form {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .waitlist-input {
-      flex: 1;
-      padding: 0.5rem 0.75rem;
-      font-size: 0.9375rem;
-      font-family: inherit;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      color: var(--foreground);
-      outline: none;
-      transition: border-color 0.15s ease;
-    }
-
-    .waitlist-input::placeholder { color: var(--faint); }
-    .waitlist-input:focus { border-color: var(--muted); }
-
-    .waitlist-btn {
-      font-size: 0.875rem;
-      font-family: inherit;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-      background: var(--foreground);
-      color: var(--background);
-      transition: opacity 0.15s ease;
-      white-space: nowrap;
-    }
-
-    .waitlist-btn:hover { opacity: 0.8; }
-    .waitlist-btn:disabled { opacity: 0.4; cursor: default; }
-
-    .waitlist-message {
-      font-size: 0.8125rem;
-      margin-top: 0.5rem;
-      margin-bottom: 2.5rem;
-      color: var(--muted);
-      display: none;
-    }
-
-    /* Contact */
-    .contact-label {
-      font-size: 0.6875rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--faint);
-      margin-bottom: 0.5rem;
-    }
-
-    .contact-link {
-      font-size: 0.9375rem;
-      color: var(--foreground);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 1px;
-      transition: border-color 0.15s ease;
-    }
-
-    .contact-link:hover { border-color: var(--foreground); }
-
-    /* Cookie banner */
-    #cookie-banner {
-      position: fixed;
-      bottom: 1.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: calc(100% - 3rem);
-      max-width: 480px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1rem 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 0.8125rem;
-      color: var(--muted);
-      z-index: 100;
-    }
-
-    #cookie-banner p { flex: 1; line-height: 1.5; }
-
-    #cookie-banner a {
-      color: var(--muted);
-      text-decoration: underline;
-    }
-
-    .cookie-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
-
-    .btn-accept {
-      font-size: 0.8125rem;
-      font-family: inherit;
-      padding: 0.375rem 0.875rem;
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-      background: var(--foreground);
-      color: var(--background);
-      transition: opacity 0.15s ease;
-    }
-
-    .btn-accept:hover { opacity: 0.8; }
-
-    .btn-decline {
-      font-size: 0.8125rem;
-      font-family: inherit;
-      padding: 0.375rem 0.875rem;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      cursor: pointer;
-      background: transparent;
-      color: var(--muted);
-      transition: border-color 0.15s ease;
-    }
-
-    .btn-decline:hover { border-color: var(--muted); }
-  </style>
+  <link rel="stylesheet" href="/assets/site.css" />
 </head>
 <body>
-  <main>
-    <!-- Logo -->
-    <div class="logo">
-      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M4 22 L16 10 L28 22" stroke="#1a1a18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <h1 class="wordmark">The Passo Agency</h1>
+  <div class="page">
+
+    <div class="topstrip">
+      <span>Vol &middot; 01 &middot; Issue &middot; 04</span>
+      <span class="live"><span class="live-dot" aria-hidden="true"></span> Live data</span>
     </div>
-    <p class="tagline">Media agents, working for you.</p>
 
-    <hr class="divider" />
+    <nav class="nav">
+      <a class="brand" href="/" aria-label="The Passo Agency home">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 22 L16 10 L28 22" stroke="#1a1a18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>The Passo Agency</span>
+      </a>
+      <div class="nav-links">
+        <a href="/how-it-works.html">How it works</a>
+        <a href="#what-we-do">What we do</a>
+        <a href="/data-privacy.html">Data &amp; privacy</a>
+        <a href="/pricing.html">Pricing</a>
+      </div>
+      <a href="/coming-soon.html" class="nav-cta">Install on Shopify</a>
+    </nav>
 
-    <p class="body-text">
-      We're currently at capacity and not accepting new clients right now. We'll be opening up to beta testing soon, so leave your email to join the waiting list.
-    </p>
+    <section class="hero">
+      <div class="eyebrow">For Shopify direct-to-consumer merchants</div>
+      <h1>A media strategy<br />built from your<br />own sales data.</h1>
+      <p class="hero-sub">We connect to your Shopify store and your existing ad accounts, then publish a personalised media strategy in three working days. After that, a single dashboard tells you what is working and what to change.</p>
+      <div class="hero-ctas">
+        <a href="/coming-soon.html" class="btn-primary">Install on Shopify <span aria-hidden="true">&rarr;</span></a>
+        <a href="/how-it-works.html" class="btn-secondary">See how it works</a>
+      </div>
+      <div class="hero-meta">Made in London &middot; Built for Shopify Plus and Shopify Standard merchants &middot; Data hosted in the EU.</div>
+    </section>
 
-    <!-- Waitlist -->
-    <form class="waitlist-form" id="waitlist-form" novalidate>
-      <input
-        class="waitlist-input"
-        type="email"
-        id="waitlist-email"
-        placeholder="your@email.com"
-        autocomplete="email"
-        required
-      />
-      <button class="waitlist-btn" type="submit">Notify me</button>
-    </form>
-    <p class="waitlist-message" id="waitlist-message"></p>
+    <section id="what-we-do" class="section">
+      <div class="eyebrow">What we do</div>
+      <h2>Three deliverables, all from one install.</h2>
+      <p class="lede">You install the Shopify app, connect Google Ads, Meta Ads, and Google Analytics by OAuth, and answer five short questions. We do the rest.</p>
+      <div class="pillar-grid">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <h3>Initial Strategy</h3>
+          <p>An interactive report covering your acquisition economics, channel mix, audience build, and a full media plan tied to your real Shopify customer base.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <h3>Ongoing performance dashboard</h3>
+          <p>One screen with your day-over-day numbers across Shopify, Google Ads, and Meta Ads, reconciled against each other so spend and revenue line up.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <h3>Weekly recommendations</h3>
+          <p>A short list of changes to consider, scored against your own data and last week&rsquo;s results. You decide whether to apply them in your ad accounts.</p>
+        </div>
+      </div>
+    </section>
 
-    <!-- Contact -->
-    <p class="contact-label">Get in touch</p>
-    <a class="contact-link" href="mailto:hello@passoagency.com">hello@passoagency.com</a>
-  </main>
+    <section id="how-it-works" class="section">
+      <div class="eyebrow">How it works</div>
+      <h2>From install to launch in three working days.</h2>
+      <p class="lede">We are delivered through the Shopify App Store. Once you install the app, the strategy window starts running in the background. You do not need to do anything else after the OAuth connections.</p>
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="day">Day 0</div>
+          <h4>Install and connect</h4>
+          <p>Install the app from the Shopify App Store. Connect Google Ads, Meta Ads, and Google Analytics by OAuth. Answer five short questions about your category and your goals.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="day">Day 1 to 2</div>
+          <h4>We read your data</h4>
+          <p>We pull your Shopify orders, your Google Ads campaign structure and performance, and your Meta Ads spend and creative. Nothing leaves the EU.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="day">Day 3</div>
+          <h4>Strategy report publishes</h4>
+          <p>Your personalised report lands at a token-protected URL. Voiced sections, written sections, and an editable media plan, all built from your own numbers.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="day">Day 4 onwards</div>
+          <h4>Dashboard and weekly reviews</h4>
+          <p>The dashboard refreshes daily. Once a week you receive a short list of suggested changes you can apply in your ad accounts.</p>
+        </div>
+      </div>
+    </section>
 
-  <!-- Cookie banner -->
-  <div id="cookie-banner" role="region" aria-label="Cookie consent">
-    <p>We use analytics cookies to understand how people find us. <a href="/privacy.html">Privacy policy</a>.</p>
-    <div class="cookie-actions">
-      <button class="btn-decline" onclick="handleConsent(false)">Decline</button>
-      <button class="btn-accept" onclick="handleConsent(true)">Accept</button>
-    </div>
+    <section id="data-sources" class="section">
+      <div class="eyebrow">Data sources</div>
+      <h2>What we read, and only what we read.</h2>
+      <p class="lede">We connect to three external data sources alongside your Shopify store. Every connection is read-only at our access tier and can be disconnected at any time from the dashboard settings page.</p>
+
+      <div class="data-row">
+        <div class="data-source">Google Ads</div>
+        <div class="data-purpose">Read-only access via the Google Ads API. We pull <strong>campaign and ad-group performance</strong>, <strong>cost and conversion metrics</strong>, and <strong>account-level structure</strong> to reconcile Google-attributed conversions against your Shopify orders. We do not create, edit, pause, or delete anything in your Google Ads account. Full breakdown at <a href="/how-it-works.html">how it works</a>.</div>
+      </div>
+      <div class="data-row">
+        <div class="data-source">Meta Ads</div>
+        <div class="data-purpose">Read-only access via the Meta Marketing API. Same principle as Google Ads: we read campaign performance, audiences, and creative metadata so we can compare channel-level results.</div>
+      </div>
+      <div class="data-row">
+        <div class="data-source">Google Analytics</div>
+        <div class="data-purpose">Read-only access via the GA4 Data API. We read landing-page sessions and on-site engagement to triangulate against the paid channel data. Optional: if you skip the connection we use Shopify and ad-account data only.</div>
+      </div>
+      <div class="data-row">
+        <div class="data-source">Shopify</div>
+        <div class="data-purpose">Order history, customer cohorts, and catalogue. Pulled through the Shopify App Bridge under the standard scopes declared in our App Store listing.</div>
+      </div>
+    </section>
+
+    <footer class="site-foot">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand">The Passo Agency</div>
+          <div>The Passo Agency Ltd, a company registered in England and Wales.</div>
+          <div style="margin-top: 8px;">London, United Kingdom.</div>
+          <div style="margin-top: 8px;"><a href="mailto:hello@passoagency.com">hello@passoagency.com</a></div>
+        </div>
+        <div class="foot-col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="#what-we-do">What we do</a></li>
+            <li><a href="/how-it-works.html">How it works</a></li>
+            <li><a href="/pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Trust</h5>
+          <ul>
+            <li><a href="/data-privacy.html">Data &amp; privacy</a></li>
+            <li><a href="/privacy.html">Privacy policy</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="mailto:hello@passoagency.com">Email us</a></li>
+            <li><a href="/coming-soon.html">Join the waitlist</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <div>&copy; 2026 The Passo Agency Ltd</div>
+        <div>passoagency.com</div>
+      </div>
+    </footer>
+
   </div>
-
-  <script>
-    // Cookie consent
-    (function () {
-      var consent = localStorage.getItem('passo_cookie_consent');
-      if (consent !== null) {
-        document.getElementById('cookie-banner').style.display = 'none';
-        if (consent === 'granted') grantAnalytics();
-      }
-    })();
-
-    function grantAnalytics() {
-      gtag('consent', 'update', { analytics_storage: 'granted' });
-    }
-
-    function handleConsent(accepted) {
-      localStorage.setItem('passo_cookie_consent', accepted ? 'granted' : 'denied');
-      document.getElementById('cookie-banner').style.display = 'none';
-      if (accepted) grantAnalytics();
-    }
-
-    // Waitlist form
-    // TODO: replace the endpoint below with your email service (e.g. Loops, Buttondown)
-    var WAITLIST_ENDPOINT = 'https://YOUR-EMAIL-SERVICE-ENDPOINT';
-
-    document.getElementById('waitlist-form').addEventListener('submit', async function (e) {
-      e.preventDefault();
-      var emailInput = document.getElementById('waitlist-email');
-      var messageEl = document.getElementById('waitlist-message');
-      var btn = this.querySelector('button[type="submit"]');
-      var email = emailInput.value.trim();
-
-      if (!email) return;
-
-      btn.disabled = true;
-      btn.textContent = '...';
-      messageEl.style.display = 'none';
-
-      try {
-        var res = await fetch(WAITLIST_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email }),
-        });
-
-        if (res.ok) {
-          this.style.display = 'none';
-          messageEl.textContent = "You're on the list.";
-          messageEl.style.display = 'block';
-        } else {
-          throw new Error('Request failed');
-        }
-      } catch {
-        btn.disabled = false;
-        btn.textContent = 'Notify me';
-        messageEl.textContent = 'Something went wrong. Try emailing hello@passoagency.com instead.';
-        messageEl.style.display = 'block';
-      }
-    });
-  </script>
 </body>
 </html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How it works &middot; The Passo Agency</title>
+  <meta name="description" content="How we connect to your Google Ads account, what we read, what we do not do, where the data is stored, and how to disconnect at any time." />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M4 22 L16 10 L28 22' stroke='%231a1a18' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+  <div class="page">
+
+    <nav class="nav">
+      <a class="brand" href="/" aria-label="The Passo Agency home">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 22 L16 10 L28 22" stroke="#1a1a18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>The Passo Agency</span>
+      </a>
+      <div class="nav-links">
+        <a href="/how-it-works.html" class="active">How it works</a>
+        <a href="/#what-we-do">What we do</a>
+        <a href="/data-privacy.html">Data &amp; privacy</a>
+        <a href="/pricing.html">Pricing</a>
+      </div>
+      <a href="/coming-soon.html" class="nav-cta">Install on Shopify</a>
+    </nav>
+
+    <div class="crumbs">
+      <a href="/">passoagency.com</a><span class="sep">/</span><span>How it works</span>
+    </div>
+
+    <header class="hero hero-interior">
+      <div class="eyebrow">How it works</div>
+      <h1>How we use your Google Ads data.</h1>
+      <p class="hero-sub">When you connect your Google Ads account on day zero, we read your campaign performance and reconcile it against your Shopify orders to build the strategy report. This page documents exactly which API calls we make, what we do with the data, and what we do not do.</p>
+    </header>
+
+    <div class="main-grid">
+      <aside class="toc" aria-label="On this page">
+        <h6>On this page</h6>
+        <ol>
+          <li><a href="#connect">Connecting your account</a></li>
+          <li><a href="#read">What we read</a></li>
+          <li><a href="#never">What we do not do</a></li>
+          <li><a href="#storage">Storage and retention</a></li>
+          <li><a href="#disconnect">Disconnect and deletion</a></li>
+        </ol>
+      </aside>
+
+      <article>
+
+        <section id="connect">
+          <h2>Connecting your account</h2>
+          <p>The connection runs through Google&rsquo;s standard OAuth 2.0 flow. From the onboarding screen you click <strong>Connect Google Ads</strong> and are redirected to <code>accounts.google.com</code>, where Google asks you to authorise Passo to read your Google Ads data with the scope <code>https://www.googleapis.com/auth/adwords</code>. Once you confirm, Google redirects you back to <code>passoagency.com/api/auth/google/callback</code> with an authorisation code, which we exchange for a refresh token.</p>
+          <p>The refresh token is encrypted at rest with AES-256 and is the only credential we store. Each API call we make to Google derives a short-lived access token in memory only.</p>
+          <div class="callout">
+            <h4>You can skip the connection.</h4>
+            <p>If you would rather not connect Google Ads, click <em>Continue</em>. We will fall back to category-peer benchmarks for the report. Most merchants connect because the report is materially better with their own data.</p>
+          </div>
+        </section>
+
+        <section id="read">
+          <h2>What we read</h2>
+          <p>At the access tier we have applied for (Basic), every Google Ads API call we make is read-only, called from a server-side worker against the latest stable Google Ads API. Your browser never receives or sees Google Ads tokens.</p>
+          <p>The fields we pull, and what they power in the report:</p>
+          <table class="field-table">
+            <thead>
+              <tr><th>Resource</th><th>Field</th><th>Purpose in the report</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>campaign</td>
+                <td class="field">name, status, advertising_channel_type, bidding_strategy_type</td>
+                <td>Lists your active campaigns in the strategy report and tells the recommendation engine what type of campaign each one is.</td>
+              </tr>
+              <tr>
+                <td>campaign</td>
+                <td class="field">campaign_budget.amount_micros</td>
+                <td>Aggregates your committed daily and monthly Google Ads spend for the audit section.</td>
+              </tr>
+              <tr>
+                <td>ad_group / ad_group_ad</td>
+                <td class="field">name, headlines, descriptions, ad_strength</td>
+                <td>Used to reference specific creatives in the strategy narrative (&ldquo;your highest-performing search ad currently is&hellip;&rdquo;).</td>
+              </tr>
+              <tr>
+                <td>keyword_view</td>
+                <td class="field">text, match_type, status, metrics by keyword</td>
+                <td>Powers the keyword-level performance read-out in the audit section, including which match types and keywords are pulling weight.</td>
+              </tr>
+              <tr>
+                <td>search_term_view</td>
+                <td class="field">search_term, status, metrics by query</td>
+                <td>Surfaces the actual customer queries that triggered your ads. The report calls out top converting queries and queries spending without converting.</td>
+              </tr>
+              <tr>
+                <td>product_group_view / shopping_performance_view</td>
+                <td class="field">listing group dimensions, product item id, metrics by product</td>
+                <td>Ties Google Ads spend on Shopping and Performance Max campaigns back to specific Shopify SKUs so the report can show product-level Google Ads performance.</td>
+              </tr>
+              <tr>
+                <td>change_event</td>
+                <td class="field">change_date_time, change_resource_type, user_email, old_resource, new_resource</td>
+                <td>Lets the report comment on recent activity in the account, for example when a campaign was last edited or when budgets were last changed.</td>
+              </tr>
+              <tr>
+                <td>metrics</td>
+                <td class="field">impressions, clicks, cost_micros, conversions, conversions_value, all_conversions, cost_per_conversion</td>
+                <td>The core performance numbers reconciled against Shopify revenue to compute cost per acquisition and channel ROAS.</td>
+              </tr>
+              <tr>
+                <td>geo_target_constant</td>
+                <td class="field">name (resolved from geo IDs)</td>
+                <td>Translates location targeting IDs into human-readable names for the geography section of the report.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Each merchant generates roughly ten GAQL queries on day one across the resources above, then a single daily refresh query. Steady-state load is around 30 read operations per merchant per day, well inside the Basic tier quota.</p>
+        </section>
+
+        <section id="never">
+          <h2>What we do not do</h2>
+          <ul>
+            <li>We do not <strong>create, pause, edit, or delete</strong> any campaigns, ad groups, ads, keywords, audiences, budgets, or conversion actions in your Google Ads account.</li>
+            <li>We do not call any <strong>mutate</strong> method on the Google Ads API, including <code>RecommendationService.applyRecommendation</code>.</li>
+            <li>We do not <strong>resell, export, or share</strong> your Google Ads data with any third party. It is not visible to other merchants on the platform; it is partitioned by Postgres Row-Level Security.</li>
+            <li>We do not use your Google Ads data to <strong>train generalised machine-learning models</strong> that would be applied to other merchants without explicit opt-in.</li>
+          </ul>
+          <p>If at some future date we add the ability to apply recommendations directly inside Passo, we will apply for Standard Access first and announce that change in advance. Until then, recommendations are displayed in the dashboard and you click through to Google Ads to action them yourself.</p>
+        </section>
+
+        <section id="storage">
+          <h2>Storage and retention</h2>
+          <p>All Google Ads data lives in a single Supabase-managed Postgres database hosted in the EU (eu-west-2). Each merchant&rsquo;s rows are protected by Row-Level Security policies; an authenticated request can only ever read the rows belonging to its own merchant context.</p>
+          <p>Raw report rows are kept for <strong>13 months rolling</strong>, long enough for year-on-year comparisons, then aggregated to weekly summaries and the row-level detail is deleted.</p>
+          <p>Refresh tokens are encrypted with AES-256 using a per-environment key managed in Vercel&rsquo;s encrypted environment variables. The developer token is server-side only; it is never sent to the browser or written to logs.</p>
+        </section>
+
+        <section id="disconnect">
+          <h2>Disconnect and deletion</h2>
+          <p>From the dashboard settings page you can click <strong>Disconnect Google Ads</strong> at any time. We issue a token revocation call to <code>oauth2.googleapis.com/revoke</code> and delete the encrypted refresh token from our database immediately.</p>
+          <p>If you uninstall the Shopify app entirely, all Google Ads-derived data, including raw report rows, aggregates, and the refresh token, is deleted within 30 days, alongside everything else we hold for your store. The full retention schedule is in our <a href="/privacy.html">privacy policy</a>.</p>
+        </section>
+
+      </article>
+    </div>
+
+    <footer class="site-foot">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand">The Passo Agency</div>
+          <div>The Passo Agency Ltd, a company registered in England and Wales.</div>
+          <div style="margin-top: 8px;">London, United Kingdom.</div>
+          <div style="margin-top: 8px;"><a href="mailto:hello@passoagency.com">hello@passoagency.com</a></div>
+        </div>
+        <div class="foot-col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="/#what-we-do">What we do</a></li>
+            <li><a href="/how-it-works.html">How it works</a></li>
+            <li><a href="/pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Trust</h5>
+          <ul>
+            <li><a href="/data-privacy.html">Data &amp; privacy</a></li>
+            <li><a href="/privacy.html">Privacy policy</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="mailto:hello@passoagency.com">Email us</a></li>
+            <li><a href="/coming-soon.html">Join the waitlist</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <div>&copy; 2026 The Passo Agency Ltd</div>
+        <div>passoagency.com</div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

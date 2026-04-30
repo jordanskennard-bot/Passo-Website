@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data &amp; privacy &middot; The Passo Agency</title>
+  <meta name="description" content="What we read from Google Ads, Meta Ads, Google Analytics, and Shopify, why we read it, and how it is protected. Plain-English reference for platform reviewers." />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M4 22 L16 10 L28 22' stroke='%231a1a18' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+  <div class="page">
+
+    <nav class="nav">
+      <a class="brand" href="/" aria-label="The Passo Agency home">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 22 L16 10 L28 22" stroke="#1a1a18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>The Passo Agency</span>
+      </a>
+      <div class="nav-links">
+        <a href="/how-it-works.html">How it works</a>
+        <a href="/#what-we-do">What we do</a>
+        <a href="/data-privacy.html" class="active">Data &amp; privacy</a>
+        <a href="/pricing.html">Pricing</a>
+      </div>
+      <a href="/coming-soon.html" class="nav-cta">Install on Shopify</a>
+    </nav>
+
+    <div class="crumbs">
+      <a href="/">passoagency.com</a><span class="sep">/</span><span>Data &amp; privacy</span>
+    </div>
+
+    <header class="hero hero-interior">
+      <div class="eyebrow">Data &amp; privacy</div>
+      <h1>What we read, why, <em>and how it&rsquo;s protected.</em></h1>
+      <p class="hero-sub">Plain-English explanation of every external data source we connect to. If you are reviewing this page on behalf of a platform, Google, Meta, or Shopify, this is the canonical reference for what we do with your merchants&rsquo; data. The legal policy lives at <a href="/privacy.html">/privacy</a>.</p>
+    </header>
+
+    <section class="pact" aria-labelledby="pact-title">
+      <div class="pact-head">
+        <div class="eyebrow">The Passo data pact</div>
+        <h2 id="pact-title">We read, we never write, <em>and we never resell.</em></h2>
+      </div>
+      <div class="pact-grid">
+        <div class="pact-col">
+          <h3>We always</h3>
+          <ul>
+            <li><strong>Read only.</strong> Every external API call we make to Google Ads, Meta Ads, and Google Analytics is read-only at our current access tier. We never create, edit, pause, or delete anything in your accounts.</li>
+            <li><strong>Store data in the EU.</strong> All raw and derived rows live in a Supabase-managed Postgres database in eu-west-2. Row-Level Security partitions every row by merchant, so no merchant can ever see another merchant&rsquo;s data.</li>
+            <li><strong>Honour disconnect immediately.</strong> When you disconnect a source from the dashboard, we revoke the OAuth token with the upstream provider and delete the encrypted credential the same day.</li>
+          </ul>
+        </div>
+        <div class="pact-col">
+          <h3>We never</h3>
+          <ul>
+            <li><strong>Resell, export, or share</strong> your Google Ads, Meta Ads, or Google Analytics data with any third party. Not even an aggregated anonymised version, without explicit opt-in.</li>
+            <li><strong>Train cross-merchant models</strong> on your data without explicit opt-in. The recommendation engine reads only your own store&rsquo;s data when it generates your strategy.</li>
+            <li><strong>Send credentials to the browser.</strong> OAuth refresh tokens, developer tokens, and access tokens are server-side only and never logged.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="border-bottom:none;">
+      <h2>Google Ads</h2>
+      <p>We connect to Google Ads through Google&rsquo;s standard OAuth 2.0 flow with the <code>https://www.googleapis.com/auth/adwords</code> scope. Every API call is read-only, made server-side from a Vercel-hosted worker using the official <code>google-ads-api</code> Node client against the latest stable Google Ads API.</p>
+
+      <div class="api-card">
+        <div class="api-head">
+          <h3>What we read</h3>
+          <span class="tag">Read-only</span>
+        </div>
+        <div class="api-body">
+          <p><span class="label">Resources</span> <code>customer</code>, <code>customer_client</code>, <code>campaign</code>, <code>ad_group</code>, <code>ad_group_ad</code>, <code>keyword_view</code>, <code>search_term_view</code>, <code>product_group_view</code>, <code>shopping_performance_view</code>, <code>change_event</code>, <code>geo_target_constant</code>.</p>
+          <p><span class="label">Methods</span> <code>CustomerService.listAccessibleCustomers</code>, <code>GoogleAdsService.search</code> / <code>searchStream</code>, <code>GeoTargetConstantService.suggestGeoTargetConstants</code>.</p>
+          <p><span class="label">Why</span> So the strategy report can show your campaign structure, surface the search queries that triggered your ads, tie Shopping and Performance Max spend back to specific Shopify SKUs, comment on recent changes to your account, reconcile Google-attributed conversions against Shopify orders, and compute channel-level cost per acquisition.</p>
+        </div>
+      </div>
+
+      <div class="api-card">
+        <div class="api-head">
+          <h3>What we will never call</h3>
+          <span class="tag">Excluded</span>
+        </div>
+        <div class="api-body">
+          <p>No <code>mutate*</code> method on any service. That includes <code>CampaignService.mutateCampaigns</code>, <code>CampaignBudgetService.mutateCampaignBudgets</code>, <code>AdGroupAdService.mutateAdGroupAds</code>, <code>RecommendationService.applyRecommendation</code>, and every other write call.</p>
+          <p>If we ever add the ability to apply changes inside your account, we will apply for <strong>Standard Access</strong> first and update this page before any data is touched. The full breakdown of API resources, methods, and rate-limit budgets is on <a href="/how-it-works.html">our how it works page</a>.</p>
+        </div>
+      </div>
+
+      <p><span class="label">Storage</span> The OAuth refresh token is AES-256 encrypted at rest in Supabase Postgres (eu-west-2). The developer token is a server-side environment secret, never sent to the browser, never logged. Report rows are kept 13 months rolling.</p>
+      <p><span class="label">Compliance</span> Use of Google Ads data follows the <a href="https://developers.google.com/google-ads/api/docs/best-practices/policies" target="_blank" rel="noreferrer">Google Ads API Required Minimum Functionality policy</a> for reporting tools and the Google Ads API Terms of Service. Disclosure of how we process Google Ads data is included in our <a href="/privacy.html">privacy policy</a>.</p>
+    </section>
+
+    <section class="section" style="border-bottom:none; padding-top:0;">
+      <h2>Meta Ads</h2>
+      <p>Connected via the standard Meta Marketing API through the OAuth flow at Meta for Developers. Read-only, with the same row-level partitioning and EU-only storage as the Google Ads path. The full lawful-basis breakdown is in our <a href="/privacy.html">privacy policy</a>.</p>
+    </section>
+
+    <section class="section" style="border-bottom:none; padding-top:0;">
+      <h2>Google Analytics</h2>
+      <p>Optional. Connected via the GA4 Data API with the read-only analytics scope. We use it to triangulate paid-channel performance against on-site engagement so the strategy report can comment on landing-page conversion rates by source. If you skip the connection we use Shopify and ad-account data only.</p>
+    </section>
+
+    <section class="section" style="border-bottom:none; padding-top:0;">
+      <h2>Shopify</h2>
+      <p>Connected through the Shopify App Bridge under the scopes declared in our App Store listing. Order history, customer cohorts, and catalogue. Used as the source of truth for revenue and customer attribution against which paid-channel data is reconciled.</p>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <h2>Where the data lives</h2>
+      <p>All raw and derived data is stored in a single Supabase-managed Postgres database in <strong>eu-west-2</strong>. Application servers run on Vercel, in the same region. We do not currently process merchant data outside the EU.</p>
+      <p>Backups are encrypted and retained for 30 days. If you uninstall the Shopify app, all your data, including raw rows, aggregates, encrypted refresh tokens, and backups, is purged within 30 days.</p>
+    </section>
+
+    <footer class="site-foot">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand">The Passo Agency</div>
+          <div>The Passo Agency Ltd, a company registered in England and Wales.</div>
+          <div style="margin-top: 8px;">London, United Kingdom.</div>
+          <div style="margin-top: 8px;"><a href="mailto:hello@passoagency.com">hello@passoagency.com</a></div>
+        </div>
+        <div class="foot-col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="/#what-we-do">What we do</a></li>
+            <li><a href="/how-it-works.html">How it works</a></li>
+            <li><a href="/pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Trust</h5>
+          <ul>
+            <li><a href="/data-privacy.html">Data &amp; privacy</a></li>
+            <li><a href="/privacy.html">Privacy policy</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="mailto:hello@passoagency.com">Email us</a></li>
+            <li><a href="/coming-soon.html">Join the waitlist</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <div>&copy; 2026 The Passo Agency Ltd</div>
+        <div>passoagency.com</div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
