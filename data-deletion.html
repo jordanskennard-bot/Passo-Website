@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data deletion &middot; The Passo Agency</title>
+  <meta name="description" content="How to delete your data from The Passo Agency. Self-service from the dashboard, written request by email, and the schedule we follow." />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 160' fill='none'%3E%3Cg transform='translate(16,24)'%3E%3Cline x1='120' y1='8' x2='120' y2='18' stroke='%23E5326A' stroke-width='3'/%3E%3Cpath d='M 0 110 C 14 109, 22 108, 32 106 C 46 103, 60 99, 72 92 C 86 84, 96 70, 104 56 C 112 42, 116 30, 120 18 L 124 30 C 130 46, 138 64, 148 80 C 156 92, 162 100, 168 110' stroke='%231A1A18' stroke-width='6' stroke-linejoin='miter' stroke-linecap='butt' fill='none'/%3E%3Cline x1='0' y1='110' x2='168' y2='110' stroke='%231A1A18' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/site.css" />
+  <style>
+    .legal-wrap { max-width: 720px; padding: 8px 0 32px; }
+    .legal-wrap h2 {
+      font-size: 22px;
+      margin: 36px 0 12px;
+    }
+    .legal-wrap h2:first-of-type { margin-top: 24px; }
+    .legal-wrap p, .legal-wrap li {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink-body);
+    }
+    .legal-wrap ul { padding-left: 22px; margin: 0 0 16px; }
+    .legal-wrap li { margin-bottom: 6px; }
+    .legal-wrap a { color: var(--ink-primary); text-decoration: underline; text-underline-offset: 2px; }
+    .legal-wrap .updated {
+      font-size: 13px;
+      color: var(--ink-label);
+      margin-top: 40px;
+      padding-top: 22px;
+      border-top: 1px solid var(--paper-rule);
+    }
+    .legal-wrap .steps {
+      counter-reset: step;
+      list-style: none;
+      padding-left: 0;
+      margin: 8px 0 24px;
+    }
+    .legal-wrap .steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 36px;
+      margin-bottom: 14px;
+    }
+    .legal-wrap .steps li::before {
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      color: var(--ink-label);
+    }
+    .legal-wrap .note {
+      border-left: 2px solid var(--paper-rule);
+      padding: 4px 0 4px 16px;
+      margin: 16px 0 20px;
+      color: var(--ink-2);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <nav class="nav">
+      <a class="brand" href="/" aria-label="The Passo Agency home">
+        <svg class="brand-mark" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g transform="translate(16,24)">
+            <line x1="120" y1="10" x2="120" y2="16" stroke="#E5326A" stroke-width="1.5"/>
+            <path d="M 0 110 C 14 109, 22 108, 32 106 C 46 103, 60 99, 72 92 C 86 84, 96 70, 104 56 C 112 42, 116 30, 120 18 L 124 30 C 130 46, 138 64, 148 80 C 156 92, 162 100, 168 110" stroke="#1A1A18" stroke-width="2.5" stroke-linejoin="miter" stroke-linecap="butt" fill="none"/>
+            <line x1="0" y1="110" x2="168" y2="110" stroke="#1A1A18" stroke-width="1"/>
+          </g>
+        </svg>
+        <span>The Passo Agency</span>
+      </a>
+      <div class="nav-links">
+        <a href="/how-it-works.html">How it works</a>
+        <a href="/#what-we-do">What we do</a>
+        <a href="/data-privacy.html">Data &amp; privacy</a>
+        <a href="/pricing.html">Pricing</a>
+      </div>
+      <a href="/coming-soon.html" class="nav-cta">Install on Shopify</a>
+    </nav>
+
+    <div class="crumbs">
+      <a href="/">passoagency.com</a><span class="sep">/</span><span>Data deletion</span>
+    </div>
+
+    <header class="hero hero-interior">
+      <div class="eyebrow">Data deletion</div>
+      <h1>How to delete your data, <em>and what happens when you do.</em></h1>
+      <p class="hero-sub">A plain-English account of the three deletion paths we offer, the schedule we follow, and the records we are obliged to keep. For the legal policy, see our <a href="/privacy.html">privacy policy</a>. For what we read in the first place, see <a href="/data-privacy.html">data &amp; privacy</a>.</p>
+    </header>
+
+    <article class="legal-wrap">
+
+      <h2>Three ways to delete</h2>
+      <p>Most of the data we hold is tied to a Shopify store, an ad account you have connected, or a customer record one of those stores has shared with us. There is one path for each.</p>
+
+      <h2>1. Disconnect a single source from the dashboard</h2>
+      <p>Once the Passo app is installed in your Shopify admin, the dashboard lives inside Shopify. To stop sending data from one connected source while keeping Passo connected to the rest of your stack, open the app and follow the steps below.</p>
+      <ol class="steps">
+        <li>Open the Passo app from the <em>Apps</em> menu in your Shopify admin.</li>
+        <li>Open <em>Settings</em>, then <em>Connections</em>.</li>
+        <li>Click <em>Disconnect</em> next to the source you want to remove.</li>
+        <li>Confirm in the dialog that appears.</li>
+      </ol>
+      <p>The moment you confirm, we call the relevant revocation endpoint at the upstream provider, delete the encrypted refresh token from our database, and stop reading from that source. The historical rows we already hold for that source remain in your dashboard so the strategy report stays coherent. If you also want those historical rows removed, follow path three below.</p>
+
+      <h2>2. Uninstall the Passo app from your Shopify admin</h2>
+      <p>Uninstalling the app from your Shopify admin is the full delete. Everything we hold for your store, including your raw ad-account rows, aggregated metrics, the strategy report, the dashboard configuration, the prepaid media balance ledger, and the encrypted credentials for every connected source, is scheduled for deletion immediately.</p>
+      <ol class="steps">
+        <li>In your Shopify admin, go to <em>Apps</em>.</li>
+        <li>Find <em>The Passo Agency</em> in your installed apps list.</li>
+        <li>Click <em>Uninstall</em>.</li>
+        <li>Confirm in the dialog that appears.</li>
+      </ol>
+      <p>Within thirty days every piece of data we hold for your store is removed from our production database and from any encrypted backup retained for disaster recovery. We will email you a confirmation when deletion is complete, addressed to the contact on file for the Shopify store.</p>
+      <p>If there is an unused prepaid media balance on your account when you uninstall, we refund it to the same payment method within thirty days. The financial record of that refund is kept for the period our auditors and HMRC require, currently seven years from the end of the relevant accounting year.</p>
+
+      <h2>3. Written request for any other case</h2>
+      <p>For everything else, including deletion of historical rows from a still-connected source, deletion on behalf of an end customer whose data may have reached us through a connected pixel or the Conversions API, or any request under UK GDPR, write to us.</p>
+      <ol class="steps">
+        <li>Email <a href="mailto:hello@passoagency.com">hello@passoagency.com</a> from the email address registered to your Shopify store. If you are writing on behalf of an end customer, write from a verifiable contact for that customer or the merchant who holds their record, and tell us which store the request relates to.</li>
+        <li>Tell us what you want deleted. "All historical rows from my Google Ads connection," "the customer record matching this hashed email," "everything you hold for my store" are all acceptable phrasings.</li>
+        <li>We acknowledge within two working days, complete the deletion within thirty days, and email a written confirmation when it is done.</li>
+      </ol>
+      <div class="note">
+        <p>If you are a Meta reviewer, Google reviewer, or other platform auditor verifying this path, write from your reviewer email address with the platform name in the subject line and we will reply on the next working day.</p>
+      </div>
+
+      <h2>End-customer data specifically</h2>
+      <p>Data we receive about your customers, for example through a Meta pixel or a Conversions API feed configured on a merchant store, is held under the merchant's data controller relationship with that customer. If one of your customers asks you to delete their data, you can forward the request to us at <a href="mailto:hello@passoagency.com">hello@passoagency.com</a> with the customer's hashed identifier and the affected store. We will remove the matching rows from our database and the matching identifier from any downstream caches within thirty days.</p>
+      <p>Customer information parameters we transmit on a merchant's behalf, including hashed email, phone, name, address, city, post code, and external identifier, are not stored in raw form at any point. They are hashed in transit and we retain only the hashed values used for match-quality reporting. Deleting the customer's record from our database removes those hashes alongside the rest of the row.</p>
+
+      <h2>The schedule we follow</h2>
+      <p>Encrypted credentials for any connected source: deleted on the same day you disconnect or uninstall. Raw ad-account rows, dashboard configuration, the prepaid media balance ledger, and any customer-record hashes: deleted within thirty days. Encrypted backups: rotated out within thirty days; deletion is propagated to backups as part of the same job. Aggregated category-level signals we have used in cross-merchant learning are not tied to a single store and remain in our learning layer in their anonymised form, as set out in our <a href="/privacy.html">privacy policy</a>.</p>
+
+      <h2>What we keep, and why</h2>
+      <p>We keep financial records, including invoices, credit notes, and the audit trail of payment-method changes, for the period our auditors and HMRC require under UK tax law, currently seven years from the end of the relevant accounting year. We keep the log of deletion requests themselves, including who asked, when, and what we deleted, for the same period so that we can prove compliance if we are ever asked. Both records are stored separately from the rest of your account data and access is restricted to a small number of authorised people.</p>
+
+      <h2>Contact</h2>
+      <p>If you have a question about deletion that this page does not answer, write to <a href="mailto:hello@passoagency.com">hello@passoagency.com</a>. We aim to reply within two working days.</p>
+
+      <p class="updated">Last updated: May 2026.</p>
+    </article>
+
+    <footer class="site-foot">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand">The Passo Agency</div>
+          <div>The Passo Agency Ltd, a company registered in England and Wales.</div>
+          <div style="margin-top: 8px;">London, United Kingdom.</div>
+          <div style="margin-top: 8px;"><a href="mailto:hello@passoagency.com">hello@passoagency.com</a></div>
+        </div>
+        <div class="foot-col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="/#what-we-do">What we do</a></li>
+            <li><a href="/how-it-works.html">How it works</a></li>
+            <li><a href="/pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Trust</h5>
+          <ul>
+            <li><a href="/data-privacy.html">Data &amp; privacy</a></li>
+            <li><a href="/privacy.html">Privacy policy</a></li>
+            <li><a href="/terms.html">Terms of service</a></li>
+            <li><a href="/data-deletion.html">Data deletion</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="mailto:hello@passoagency.com">Email us</a></li>
+            <li><a href="/coming-soon.html">Join the waitlist</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <div>&copy; 2026 The Passo Agency Ltd</div>
+        <div>passoagency.com</div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
