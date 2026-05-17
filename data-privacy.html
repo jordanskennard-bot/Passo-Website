@@ -105,7 +105,35 @@
 
     <section class="section" style="border-bottom:none; padding-top:0;">
       <h2>Meta Ads</h2>
-      <p>Connected via the standard Meta Marketing API through the OAuth flow at Meta for Developers. Read-only, with the same row-level partitioning and EU-only storage as the Google Ads path. The full lawful-basis breakdown is in our <a href="/privacy.html">privacy policy</a>.</p>
+      <p>Connected to your Meta Business Manager through Meta&rsquo;s Embedded Solutions Onboarding flow at install. We provision a <strong>System User</strong> inside your BM and the System User token authenticates every subsequent Marketing API call we make on your behalf. No shared admin credentials. No password handling. The token is scoped to your BM only and can be revoked from your BM settings at any time.</p>
+
+      <div class="api-card">
+        <div class="api-head">
+          <h3>What we read</h3>
+          <span class="tag">Read-only</span>
+        </div>
+        <div class="api-body">
+          <p><span class="label">Resources</span> <code>adaccount</code>, <code>campaign</code>, <code>adset</code>, <code>ad</code>, <code>adcreative</code>, <code>customaudience</code>, <code>adsinsights</code>, <code>page</code>, <code>instagram_business_account</code>, <code>product_catalog</code>, <code>product_set</code>, <code>product_feed</code>.</p>
+          <p><span class="label">Permissions</span> <code>ads_read</code>, <code>read_insights</code>, <code>pages_read_engagement</code>, <code>instagram_basic</code>, <code>instagram_manage_insights</code>. Plus the <code>business_management</code> permission used to provision the System User during Embedded Solutions Onboarding.</p>
+          <p><span class="label">Why</span> So the Day 3 strategy report can show your account structure, spend, Meta-reported conversions, audience data, and creative performance; reconcile what Meta tells you against what your Shopify store recorded; and surface the gap between the two as a plain-English finding. The competitor creative gallery uses the public <strong>Ad Library API</strong> — no merchant token required for that.</p>
+          <p><span class="label">Conversions API</span> Optional. If you choose to install the Conversions API Gateway, we provision it on your own subdomain and forward server-side events (ViewContent, AddToCart, InitiateCheckout, Purchase) to Meta on your behalf. Customer information parameters (email, phone, name, address, city, postcode, external ID) are hashed in transit using SHA-256 and we retain only the hashed values for match-quality reporting. Raw PII never reaches our database. Transmission is gated by the Shopify Customer Privacy API consent state.</p>
+        </div>
+      </div>
+
+      <div class="api-card">
+        <div class="api-head">
+          <h3>What we will never call without your explicit instruction</h3>
+          <span class="tag">Gated</span>
+        </div>
+        <div class="api-body">
+          <p>Until you upgrade to our managed-delivery tier, we do not call any write method on the Marketing API. That includes campaign creation, ad set or ad edits, budget changes, audience writes, creative uploads, and catalogue mutations. The dashboard surfaces recommendations and you action them inside Meta Ads Manager yourself.</p>
+          <p>When you upgrade and explicitly authorise managed delivery, the write scopes that activate are <code>ads_management</code>, <code>catalog_management</code>, and <code>pages_manage_ads</code>. Every write call is wrapped by our policy layer, which gates the call against the three-tier autonomy model you approved at activation: tier 1 actions (small bid and budget adjustments) execute and log, tier 2 actions (±15% delivery changes) execute and notify you, tier 3 actions (campaign pause, new campaign, fundamental strategy changes) halt pending your approval.</p>
+          <p>We will never request <code>leads_retrieval</code> or any permission that surfaces consumer data outside the campaign performance we report on. We never post on your behalf on the merchant Page or Instagram account without your explicit instruction. We never share your Meta Ads data with any third party.</p>
+        </div>
+      </div>
+
+      <p><span class="label">Storage</span> The System User token is AES-256 encrypted at rest in Supabase Postgres (eu-west-2) and is the only credential we hold for your Meta integration. App secrets and developer tokens are server-side environment values, never sent to the browser, never logged. Ad-account performance rows are kept for 13 months rolling.</p>
+      <p><span class="label">Compliance</span> Use of Meta data follows the <a href="https://developers.facebook.com/terms/" target="_blank" rel="noreferrer">Meta Platform Terms</a> and the <a href="https://www.facebook.com/legal/technology_terms" target="_blank" rel="noreferrer">Meta Developer Policies</a>. We are registered as a Tech Provider in our own Business Manager (Passo Agency Ltd) with verified domain <code>passoagency.com</code> and Business Verification submitted to Meta. Disclosure of how we process Meta data is included in our <a href="/privacy.html">privacy policy</a>.</p>
     </section>
 
     <section class="section" style="border-bottom:none; padding-top:0;">
