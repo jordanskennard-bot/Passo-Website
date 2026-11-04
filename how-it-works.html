@@ -143,7 +143,7 @@
 
         <section id="storage">
           <h2>Storage and retention</h2>
-          <p>All Google Ads data lives in a single Supabase-managed Postgres database hosted in the EU (eu-west-2). Each merchant&rsquo;s rows are protected by Row-Level Security policies; an authenticated request can only ever read the rows belonging to its own merchant context.</p>
+          <p>All Google Ads data lives in a single Supabase-managed Postgres database hosted in London (eu-west-2). Each merchant&rsquo;s rows are protected by Row-Level Security policies; an authenticated request can only ever read the rows belonging to its own merchant context.</p>
           <p>Raw report rows are kept for <strong>13 months rolling</strong>, long enough for year-on-year comparisons, then aggregated to weekly summaries and the row-level detail is deleted.</p>
           <p>Refresh tokens are encrypted with AES-256 using a per-environment key managed in Vercel&rsquo;s encrypted environment variables. The developer token is server-side only; it is never sent to the browser or written to logs.</p>
         </section>
@@ -162,7 +162,7 @@
         <div>
           <div class="foot-brand">The Passo Agency</div>
           <div>Passo Agency Ltd, registered in England and Wales (no. 17208051).</div>
-          <div style="margin-top: 8px;">London, United Kingdom.</div>
+          <div style="margin-top: 8px;">5 Croftway, York, YO26 5LU, United Kingdom.</div>
           <div style="margin-top: 8px;"><a href="mailto:hello@passoagency.com">hello@passoagency.com</a></div>
         </div>
         <div class="foot-col">
