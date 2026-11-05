@@ -76,7 +76,7 @@
       <p>The Passo Agency is the trading name of Passo Agency Ltd, a company registered in England and Wales (company number 17208051). Our registered office is 5 Croftway, York, YO26 5LU. If you have any questions about this policy, contact us at <a href="mailto:hello@passoagency.com">hello@passoagency.com</a>.</p>
 
       <h2>What this policy covers</h2>
-      <p>This page covers the public marketing site at passoagency.com. The privacy notice covering the Shopify merchant app, including merchant data, customer data, and connected ad-account data, is presented during install and is also available on request.</p>
+      <p>This policy covers the public marketing site at passoagency.com, our client portal at clients.passoagency.com, and the Passo Shopify app. It explains what we collect from each, including data from advertising and analytics accounts that clients connect to us.</p>
 
       <h2>What we collect on this site</h2>
       <p>This site collects the following data, and only when you give your consent:</p>
@@ -88,17 +88,39 @@
       <h2>What we collect inside the Shopify app</h2>
       <p>When a Shopify merchant installs the Passo app, we read order history, customer cohorts, and catalogue data through the Shopify App Bridge under the scopes declared in our App Store listing. We also connect, on the merchant&rsquo;s explicit instruction and via OAuth, to Google Ads, Meta Ads, and Google Analytics, on a read-only basis. The full breakdown of what we read from each source, why, and how it is protected is published on our <a href="/data-privacy.html">data &amp; privacy</a> page.</p>
 
+      <h2>Accounts you connect in the client portal</h2>
+      <p>Clients can connect their advertising and analytics accounts to us from the client portal by signing in with each platform and approving access. We use that access to review the accounts, report on performance, and give the client recommendations. Depending on what the client connects, we read:</p>
+      <ul>
+        <li><strong>Google Ads:</strong> account structure, campaign settings, spend, conversions and performance metrics. We can also accept a link between the client&rsquo;s account and our manager account, so our team can view it.</li>
+        <li><strong>Google Merchant Center:</strong> product data, feed status and product disapprovals that affect Shopping ads.</li>
+        <li><strong>Google Analytics:</strong> sessions, traffic sources and conversions, on a read-only basis.</li>
+        <li><strong>Meta, Pinterest and other ad platforms:</strong> ad account structure, spend, performance metrics and creative details.</li>
+      </ul>
+      <p>We also store the name and email address of the person who connects each account, and an encrypted access token for each connection. We do not change campaigns, budgets or settings in a connected account unless the client has instructed us to in writing. A client can disconnect any account at any time from the portal or from the platform&rsquo;s own settings.</p>
+
+      <h2>Google user data</h2>
+      <p>The Passo Agency&rsquo;s use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+      <p>Specifically, data we receive from Google Ads, Google Merchant Center and Google Analytics:</p>
+      <ul>
+        <li>is used only to provide the review, reporting and recommendation services the client has asked us for;</li>
+        <li>is shown only to that client and to Passo staff working on their account;</li>
+        <li>is never sold, and never used for advertising, retargeting, credit decisions or to build profiles of individuals;</li>
+        <li>is never used to train general-purpose AI or machine learning models;</li>
+        <li>is read by people at Passo only to deliver the client&rsquo;s service, for security, or where the law requires it.</li>
+      </ul>
+      <p>We may send extracts of this data to the AI providers listed under third parties, to help write analysis for that client. Those providers act as our processors and may not use the data to train their models.</p>
+
       <h2>Legal basis</h2>
-      <p>Analytics cookies on this marketing site are processed on the basis of your consent (UK GDPR Art. 6(1)(a)). You can withdraw consent at any time by clearing your browser&rsquo;s local storage for this site. Waitlist emails are processed on the basis of your consent to be contacted about the launch. Inside the Shopify app, processing of merchant and customer data is performed on the basis of the merchant&rsquo;s contractual instruction to us.</p>
+      <p>Analytics cookies on this marketing site are processed on the basis of your consent (UK GDPR Art. 6(1)(a)). You can withdraw consent at any time by clearing your browser&rsquo;s local storage for this site. Waitlist emails are processed on the basis of your consent to be contacted about the launch. Inside the Shopify app and the client portal, processing of client, merchant and customer data is performed on the basis of the client&rsquo;s contractual instruction to us.</p>
 
       <h2>How long we keep it</h2>
-      <p>Google Analytics retains data for 14 months by default. Waitlist email addresses are deleted on request, and in any case once the platform has launched and you have either installed the app or unsubscribed. Inside the Shopify app, raw report rows are retained for 13 months rolling and are then aggregated and the row-level detail deleted; encrypted refresh tokens are deleted immediately on disconnect; if you uninstall the app, all merchant data is purged within 30 days, including encrypted backups.</p>
+      <p>Google Analytics retains data for 14 months by default. Waitlist email addresses are deleted on request, and in any case once the platform has launched and you have either installed the app or unsubscribed. Inside the Shopify app, raw report rows are retained for 13 months rolling and are then aggregated and the row-level detail deleted; encrypted refresh tokens are deleted immediately on disconnect; if you uninstall the app, all merchant data is purged within 30 days, including encrypted backups. When a client disconnects an account in the client portal, we delete its access token immediately and stop collecting data from it. When a client relationship ends, we delete the data collected from their connected accounts within 30 days, unless the client asks us to keep it or the law requires us to.</p>
 
       <h2>Where the data lives</h2>
-      <p>Inside the Shopify app, all raw and derived data is stored in a Supabase-managed Postgres database in eu-west-2 (EU). Application servers run on Vercel, in the same region. We do not currently process merchant data outside the EU. Marketing-site analytics are processed by Google in accordance with their privacy policy and may be transferred outside the UK or EEA under standard contractual clauses approved by the ICO.</p>
+      <p>For the Shopify app and the client portal, all raw and derived data is stored in a Supabase-managed Postgres database in eu-west-2 (London), encrypted at rest. Application servers run on Vercel. Where a processor handles data outside the UK, the transfer is covered by the UK International Data Transfer Addendum or an adequacy decision. Marketing-site analytics are processed by Google in accordance with their privacy policy and may be transferred outside the UK or EEA under standard contractual clauses approved by the ICO.</p>
 
       <h2>Third parties</h2>
-      <p>We use Google Analytics (operated by Google LLC) on this marketing site. Inside the Shopify app, we use Supabase (storage and database), Vercel (hosting), Stripe (billing), Anthropic (AI narrative synthesis), ElevenLabs (voiced audio), and OpenAI (image generation). A current subprocessor list is available on request.</p>
+      <p>We use Google Analytics (operated by Google LLC) on this marketing site. For the Shopify app and the client portal, we use Supabase (storage and database), Vercel (hosting), Stripe (billing), Anthropic (AI narrative synthesis), ElevenLabs (voiced audio), and OpenAI (image generation). A current subprocessor list is available on request.</p>
 
       <h2>Your rights</h2>
       <p>Under UK GDPR you have the right to:</p>
@@ -111,7 +133,7 @@
       </ul>
       <p>To exercise any of these rights, email <a href="mailto:hello@passoagency.com">hello@passoagency.com</a>.</p>
 
-      <p class="updated">Last updated: April 2026.</p>
+      <p class="updated">Last updated: November 2026.</p>
     </article>
 
     <footer class="site-foot">
@@ -119,7 +141,7 @@
         <div>
           <div class="foot-brand">The Passo Agency</div>
           <div>Passo Agency Ltd, registered in England and Wales (no. 17208051).</div>
-          <div style="margin-top: 8px;">London, United Kingdom.</div>
+          <div style="margin-top: 8px;">5 Croftway, York, YO26 5LU, United Kingdom.</div>
           <div style="margin-top: 8px;"><a href="mailto:hello@passoagency.com">hello@passoagency.com</a></div>
         </div>
         <div class="foot-col">

@@ -57,7 +57,7 @@
           <h3>We always</h3>
           <ul>
             <li><strong>Read only.</strong> Every external API call we make to Google Ads, Meta Ads, and Google Analytics is read-only at our current access tier. We never create, edit, pause, or delete anything in your accounts.</li>
-            <li><strong>Store data in the EU.</strong> All raw and derived rows live in a Supabase-managed Postgres database in eu-west-2. Row-Level Security partitions every row by merchant, so no merchant can ever see another merchant&rsquo;s data.</li>
+            <li><strong>Store data in the UK.</strong> All raw and derived rows live in a Supabase-managed Postgres database in eu-west-2. Row-Level Security partitions every row by merchant, so no merchant can ever see another merchant&rsquo;s data.</li>
             <li><strong>Honour disconnect immediately.</strong> When you disconnect a source from the dashboard, we revoke the OAuth token with the upstream provider and delete the encrypted credential the same day.</li>
           </ul>
         </div>
@@ -148,7 +148,7 @@
 
     <section class="section" style="padding-top:0;">
       <h2>Where the data lives</h2>
-      <p>All raw and derived data is stored in a single Supabase-managed Postgres database in <strong>eu-west-2</strong>. Application servers run on Vercel, in the same region. We do not currently process merchant data outside the EU.</p>
+      <p>All raw and derived data is stored in a single Supabase-managed Postgres database in <strong>eu-west-2</strong> (London). Application servers run on Vercel. We do not currently process merchant data outside the UK.</p>
       <p>Backups are encrypted and retained for 30 days. If you uninstall the Shopify app, all your data, including raw rows, aggregates, encrypted refresh tokens, and backups, is purged within 30 days.</p>
     </section>
 
@@ -157,7 +157,7 @@
         <div>
           <div class="foot-brand">The Passo Agency</div>
           <div>Passo Agency Ltd, registered in England and Wales (no. 17208051).</div>
-          <div style="margin-top: 8px;">London, United Kingdom.</div>
+          <div style="margin-top: 8px;">5 Croftway, York, YO26 5LU, United Kingdom.</div>
           <div style="margin-top: 8px;"><a href="mailto:hello@passoagency.com">hello@passoagency.com</a></div>
         </div>
         <div class="foot-col">
