@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Data &amp; privacy &middot; The Passo Agency</title>
-  <meta name="description" content="What we read from Google Ads, Meta Ads, Google Analytics, and Shopify, why we read it, and how it is protected. Plain-English reference for platform reviewers." />
+  <meta name="description" content="What we read from Shopify, Google Ads, Merchant Center, Google Analytics and Meta, why we read it, and how it is protected. Plain-English reference for platform reviewers." />
 
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 160' fill='none'%3E%3Cg transform='translate(16,24)'%3E%3Cline x1='120' y1='8' x2='120' y2='18' stroke='%23E5326A' stroke-width='3'/%3E%3Cpath d='M 0 110 C 14 109, 22 108, 32 106 C 46 103, 60 99, 72 92 C 86 84, 96 70, 104 56 C 112 42, 116 30, 120 18 L 124 30 C 130 46, 138 64, 148 80 C 156 92, 162 100, 168 110' stroke='%231A1A18' stroke-width='6' stroke-linejoin='miter' stroke-linecap='butt' fill='none'/%3E%3Cline x1='0' y1='110' x2='168' y2='110' stroke='%231A1A18' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E" />
 
@@ -50,23 +50,23 @@
     <section class="pact" aria-labelledby="pact-title">
       <div class="pact-head">
         <div class="eyebrow">The Passo data pact</div>
-        <h2 id="pact-title">We read, we never write, <em>and we never resell.</em></h2>
+        <h2 id="pact-title">We read by default, change only what you approve, <em>and we never resell.</em></h2>
       </div>
       <div class="pact-grid">
         <div class="pact-col">
           <h3>We always</h3>
           <ul>
-            <li><strong>Read only.</strong> Every external API call we make to Google Ads, Meta Ads, and Google Analytics is read-only at our current access tier. We never create, edit, pause, or delete anything in your accounts.</li>
-            <li><strong>Store data in the UK.</strong> All raw and derived rows live in a Supabase-managed Postgres database in eu-west-2. Row-Level Security partitions every row by merchant, so no merchant can ever see another merchant&rsquo;s data.</li>
-            <li><strong>Honour disconnect immediately.</strong> When you disconnect a source from the dashboard, we revoke the OAuth token with the upstream provider and delete the encrypted credential the same day.</li>
+            <li><strong>Read only by default.</strong> On our Entry plan every call we make to Google Ads, Merchant Center, Google Analytics and Meta is read-only. We never create, edit, pause or delete anything in your accounts.</li>
+            <li><strong>Ask before any change.</strong> On our Advanced plan, Passo makes changes in your ad accounts only after you approve each one in the portal, within limits you agree, and every change is logged and can be reversed.</li>
+            <li><strong>Honour disconnect immediately.</strong> When you disconnect a source or uninstall the Shopify app, we delete its access token the same day and stop collecting data from it.</li>
           </ul>
         </div>
         <div class="pact-col">
           <h3>We never</h3>
           <ul>
-            <li><strong>Resell, export, or share</strong> your Google Ads, Meta Ads, or Google Analytics data with any third party. Not even an aggregated anonymised version, without explicit opt-in.</li>
-            <li><strong>Train cross-merchant models</strong> on your data without explicit opt-in. The recommendation engine reads only your own store&rsquo;s data when it generates your strategy.</li>
-            <li><strong>Send credentials to the browser.</strong> OAuth refresh tokens, developer tokens, and access tokens are server-side only and never logged.</li>
+            <li><strong>Resell, export or share</strong> your Shopify, Google or Meta data with any third party, except the processors named in our <a href="/privacy.html">privacy policy</a> that help us run the service.</li>
+            <li><strong>Collect your customers&rsquo; personal details.</strong> We do not read the names, email addresses, phone numbers or postal addresses of your store&rsquo;s customers.</li>
+            <li><strong>Send credentials to the browser.</strong> Access and refresh tokens are encrypted, held server-side only and never logged.</li>
           </ul>
         </div>
       </div>
@@ -84,28 +84,28 @@
         <div class="api-body">
           <p><span class="label">Resources</span> <code>customer</code>, <code>customer_client</code>, <code>campaign</code>, <code>ad_group</code>, <code>ad_group_ad</code>, <code>keyword_view</code>, <code>search_term_view</code>, <code>product_group_view</code>, <code>shopping_performance_view</code>, <code>change_event</code>, <code>geo_target_constant</code>.</p>
           <p><span class="label">Methods</span> <code>CustomerService.listAccessibleCustomers</code>, <code>GoogleAdsService.search</code> / <code>searchStream</code>, <code>GeoTargetConstantService.suggestGeoTargetConstants</code>.</p>
-          <p><span class="label">Why</span> So the strategy report can show your campaign structure, surface the search queries that triggered your ads, tie Shopping and Performance Max spend back to specific Shopify SKUs, comment on recent changes to your account, reconcile Google-attributed conversions against Shopify orders, and compute channel-level cost per acquisition.</p>
+          <p><span class="label">Why</span> So our health check and reports can show your campaign structure, surface the search queries that triggered your ads, tie Shopping and Performance Max spend back to specific Shopify SKUs, comment on recent changes to your account, reconcile Google-attributed conversions against Shopify orders, and compute channel-level cost per acquisition.</p>
         </div>
       </div>
 
       <div class="api-card">
         <div class="api-head">
-          <h3>What we will never call</h3>
+          <h3>What we do not call</h3>
           <span class="tag">Excluded</span>
         </div>
         <div class="api-body">
-          <p>No <code>mutate*</code> method on any service. That includes <code>CampaignService.mutateCampaigns</code>, <code>CampaignBudgetService.mutateCampaignBudgets</code>, <code>AdGroupAdService.mutateAdGroupAds</code>, <code>RecommendationService.applyRecommendation</code>, and every other write call.</p>
-          <p>If we ever add the ability to apply changes inside your account, we will apply for <strong>Standard Access</strong> first and update this page before any data is touched. The full breakdown of API resources, methods, and rate-limit budgets is on <a href="/how-it-works.html">our how it works page</a>.</p>
+          <p>No <code>mutate*</code> method on any service under our current access. That includes <code>CampaignService.mutateCampaigns</code>, <code>CampaignBudgetService.mutateCampaignBudgets</code>, <code>AdGroupAdService.mutateAdGroupAds</code>, <code>RecommendationService.applyRecommendation</code>, and every other write call.</p>
+          <p>If you choose our Advanced plan, where Passo applies changes you approve, we will request write access separately and update this page before any change is made. The full breakdown of API resources, methods, and rate-limit budgets is on <a href="/how-it-works.html">our how it works page</a>.</p>
         </div>
       </div>
 
-      <p><span class="label">Storage</span> The OAuth refresh token is AES-256 encrypted at rest in Supabase Postgres (eu-west-2). The developer token is a server-side environment secret, never sent to the browser, never logged. Report rows are kept 13 months rolling.</p>
+      <p><span class="label">Storage</span> The OAuth refresh token is AES-256 encrypted at rest in Supabase Postgres (eu-west-2). The developer token is a server-side environment secret, never sent to the browser, never logged. Report data is kept while you are a client and deleted within 30 days after the relationship ends or you disconnect.</p>
       <p><span class="label">Compliance</span> Use of Google Ads data follows the <a href="https://developers.google.com/google-ads/api/docs/best-practices/policies" target="_blank" rel="noreferrer">Google Ads API Required Minimum Functionality policy</a> for reporting tools and the Google Ads API Terms of Service. Disclosure of how we process Google Ads data is included in our <a href="/privacy.html">privacy policy</a>.</p>
     </section>
 
     <section class="section" style="border-bottom:none; padding-top:0;">
       <h2>Meta Ads</h2>
-      <p>Connected to your Meta Business Manager through Meta&rsquo;s Embedded Solutions Onboarding flow at install. We provision a <strong>System User</strong> inside your BM and the System User token authenticates every subsequent Marketing API call we make on your behalf. No shared admin credentials. No password handling. The token is scoped to your BM only and can be revoked from your BM settings at any time.</p>
+      <p>Connected only when you choose to, by signing in with Facebook and approving access to the ad accounts you select. Every call is made server-side through Meta&rsquo;s Marketing API. You can remove our access at any time from your Meta Business settings or from the Passo portal.</p>
 
       <div class="api-card">
         <div class="api-head">
@@ -113,43 +113,47 @@
           <span class="tag">Read-only</span>
         </div>
         <div class="api-body">
-          <p><span class="label">Resources</span> <code>adaccount</code>, <code>campaign</code>, <code>adset</code>, <code>ad</code>, <code>adcreative</code>, <code>customaudience</code>, <code>adsinsights</code>, <code>page</code>, <code>instagram_business_account</code>, <code>product_catalog</code>, <code>product_set</code>, <code>product_feed</code>.</p>
-          <p><span class="label">Permissions</span> <code>ads_read</code>, <code>read_insights</code>, <code>pages_read_engagement</code>, <code>instagram_basic</code>, <code>instagram_manage_insights</code>. Plus the <code>business_management</code> permission used to provision the System User during Embedded Solutions Onboarding.</p>
-          <p><span class="label">Why</span> So the Day 3 strategy report can show your account structure, spend, Meta-reported conversions, audience data, and creative performance; reconcile what Meta tells you against what your Shopify store recorded; and surface the gap between the two as a plain-English finding. The competitor creative gallery uses the public <strong>Ad Library API</strong> — no merchant token required for that.</p>
-          <p><span class="label">Conversions API</span> Optional. If you choose to install the Conversions API Gateway, we provision it on your own subdomain and forward server-side events (ViewContent, AddToCart, InitiateCheckout, Purchase) to Meta on your behalf. Customer information parameters (email, phone, name, address, city, postcode, external ID) are hashed in transit using SHA-256 and we retain only the hashed values for match-quality reporting. Raw PII never reaches our database. Transmission is gated by the Shopify Customer Privacy API consent state.</p>
+          <p><span class="label">Data</span> Ad account structure (campaigns, ad sets, ads), settings, spend, Meta-reported conversions and performance insights, creative details, and product catalogue status.</p>
+          <p><span class="label">Permissions</span> <code>ads_read</code> and <code>business_management</code>, the latter used only to see and link the ad accounts you choose to share.</p>
+          <p><span class="label">Why</span> So our health check and reports can show how your account is set up, compare what Meta reports against the sales your Shopify store recorded, and turn the gap into plain-English findings and recommendations. Competitor creative comes from the public Ad Library and needs no access to your account.</p>
         </div>
       </div>
 
       <div class="api-card">
         <div class="api-head">
-          <h3>What we will never call without your explicit instruction</h3>
+          <h3>Changes, only with your approval</h3>
           <span class="tag">Gated</span>
         </div>
         <div class="api-body">
-          <p>Until you upgrade to our managed-delivery tier, we do not call any write method on the Marketing API. That includes campaign creation, ad set or ad edits, budget changes, audience writes, creative uploads, and catalogue mutations. The dashboard surfaces recommendations and you action them inside Meta Ads Manager yourself.</p>
-          <p>When you upgrade and explicitly authorise managed delivery, the write scopes that activate are <code>ads_management</code>, <code>catalog_management</code>, and <code>pages_manage_ads</code>. Every write call is wrapped by our policy layer, which gates the call against the three-tier autonomy model you approved at activation: tier 1 actions (small bid and budget adjustments) execute and log, tier 2 actions (±15% delivery changes) execute and notify you, tier 3 actions (campaign pause, new campaign, fundamental strategy changes) halt pending your approval.</p>
-          <p>We will never request <code>leads_retrieval</code> or any permission that surfaces consumer data outside the campaign performance we report on. We never post on your behalf on the merchant Page or Instagram account without your explicit instruction. We never share your Meta Ads data with any third party.</p>
+          <p>On the Entry plan we call no write method. You see recommendations and make any changes in Meta Ads Manager yourself.</p>
+          <p>If you choose the Advanced plan, we will ask for <code>ads_management</code> separately, and only then. Each change is shown to you in the portal and made only after you approve it, within budget limits you set, with a log of every change and a way to reverse it.</p>
+          <p>We never request <code>leads_retrieval</code> or any permission that reads consumer data beyond campaign performance. We never post on your Facebook Page or Instagram account.</p>
         </div>
       </div>
 
-      <p><span class="label">Storage</span> The System User token is AES-256 encrypted at rest in Supabase Postgres (eu-west-2) and is the only credential we hold for your Meta integration. App secrets and developer tokens are server-side environment values, never sent to the browser, never logged. Ad-account performance rows are kept for 13 months rolling.</p>
-      <p><span class="label">Compliance</span> Use of Meta data follows the <a href="https://developers.facebook.com/terms/" target="_blank" rel="noreferrer">Meta Platform Terms</a> and the <a href="https://www.facebook.com/legal/technology_terms" target="_blank" rel="noreferrer">Meta Developer Policies</a>. We are registered as a Tech Provider in our own Business Manager (Passo Agency Ltd) with verified domain <code>passoagency.com</code> and Business Verification submitted to Meta. Disclosure of how we process Meta data is included in our <a href="/privacy.html">privacy policy</a>.</p>
+      <p><span class="label">Storage</span> The Meta access token is AES-256 encrypted at rest and deleted when you disconnect. Report data is kept while you are a client and deleted within 30 days after the relationship ends or you disconnect.</p>
+      <p><span class="label">Compliance</span> Use of Meta data follows the <a href="https://developers.facebook.com/terms/" target="_blank" rel="noreferrer">Meta Platform Terms</a> and Meta&rsquo;s developer policies. Passo Agency Ltd operates the app from its own verified business portfolio with the domain passoagency.com. Disclosure of how we process Meta data is included in our <a href="/privacy.html">privacy policy</a>.</p>
+    </section>
+
+    <section class="section" style="border-bottom:none; padding-top:0;">
+      <h2>Google Merchant Center</h2>
+      <p>Optional. Connected through Google OAuth with the read-only content scope. We read product data, feed status and product disapprovals so our health check can find products missing from Shopping ads and explain how to fix them.</p>
     </section>
 
     <section class="section" style="border-bottom:none; padding-top:0;">
       <h2>Google Analytics</h2>
-      <p>Optional. Connected via the GA4 Data API with the read-only analytics scope. We use it to triangulate paid-channel performance against on-site engagement so the strategy report can comment on landing-page conversion rates by source. If you skip the connection we use Shopify and ad-account data only.</p>
+      <p>Optional. Connected via the GA4 Data API with the read-only analytics scope. We use it to triangulate paid-channel performance against on-site engagement so our reports can comment on landing-page conversion rates by source. If you skip the connection we use Shopify and ad-account data only.</p>
     </section>
 
     <section class="section" style="border-bottom:none; padding-top:0;">
       <h2>Shopify</h2>
-      <p>Connected through the Shopify App Bridge under the scopes declared in our App Store listing. Order history, customer cohorts, and catalogue. Used as the source of truth for revenue and customer attribution against which paid-channel data is reconciled.</p>
+      <p>Connected when you install the Passo app from the Shopify App Store, under the access you approve at install. We read orders, products and shop details through the Shopify Admin API. Orders are the source of truth for revenue, against which what advertising platforms report is compared. We do not read your customers&rsquo; names, email addresses, phone numbers or postal addresses. App charges are billed by Shopify on your Shopify invoice, so we never see card details.</p>
     </section>
 
     <section class="section" style="padding-top:0;">
       <h2>Where the data lives</h2>
-      <p>All raw and derived data is stored in a single Supabase-managed Postgres database in <strong>eu-west-2</strong> (London). Application servers run on Vercel. We do not currently process merchant data outside the UK.</p>
-      <p>Backups are encrypted and retained for 30 days. If you uninstall the Shopify app, all your data, including raw rows, aggregates, encrypted refresh tokens, and backups, is purged within 30 days.</p>
+      <p>Data is stored in a Supabase-managed Postgres database in <strong>eu-west-2</strong> (London), encrypted at rest. Application servers run on Vercel. Some processing, such as AI analysis, is carried out by the providers named in our <a href="/privacy.html">privacy policy</a>, under data transfer safeguards approved for the UK.</p>
+      <p>Backups are encrypted and retained for 30 days. If you uninstall the Shopify app, your store data, access tokens and backups are deleted within 30 days of Shopify&rsquo;s deletion request. We keep only a de-identified record of recommendations and their outcomes, with anything that could identify you removed.</p>
     </section>
 
     <footer class="site-foot">
