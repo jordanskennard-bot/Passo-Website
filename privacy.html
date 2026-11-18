@@ -119,6 +119,33 @@
       <h2>Where the data lives</h2>
       <p>For the Shopify app and the client portal, all raw and derived data is stored in a Supabase-managed Postgres database in eu-west-2 (London), encrypted at rest. Application servers run on Vercel. Where a processor handles data outside the UK, the transfer is covered by the UK International Data Transfer Addendum or an adequacy decision. Marketing-site analytics are processed by Google in accordance with their privacy policy and may be transferred outside the UK or EEA under standard contractual clauses approved by the ICO.</p>
 
+      <h2>How we protect your data</h2>
+      <p>These safeguards apply to all data from the Shopify app and the client portal, including Google user data.</p>
+      <p><strong>Encryption.</strong></p>
+      <ul>
+        <li>All data sent between your browser, our servers and Google&rsquo;s APIs is encrypted in transit over HTTPS, using TLS 1.2 or higher.</li>
+        <li>Our database is encrypted at rest with AES-256.</li>
+        <li>OAuth access and refresh tokens are encrypted by our application with AES-256-GCM before storage. The database rejects any token that is not encrypted, so the database and its backups hold ciphertext only. Tokens are decrypted only at the moment an API call is made.</li>
+      </ul>
+      <p><strong>Access control.</strong></p>
+      <ul>
+        <li>Only Passo staff working on your account can view your data.</li>
+        <li>Row-level security in our database keeps each client&rsquo;s records separate. Client logins cannot read stored tokens at all.</li>
+        <li>Staff accounts on Google Workspace, Supabase, Vercel and GitHub require two-step verification.</li>
+        <li>The encryption key, database credentials and API secrets are stored as encrypted environment variables on Vercel. They are never written into source code.</li>
+      </ul>
+      <p><strong>Least privilege.</strong></p>
+      <ul>
+        <li>Passo reads data from Google Ads, Merchant Center and Google Analytics. We use the write permissions in the Google Ads and Merchant Center scopes only when a client instructs us in writing.</li>
+        <li>When you disconnect an account, its token is deleted immediately.</li>
+      </ul>
+      <p><strong>Sub-processors.</strong></p>
+      <ul>
+        <li>Every sub-processor is bound by a data processing agreement. Supabase, Vercel, Anthropic and ElevenLabs each hold SOC 2 Type II reports.</li>
+        <li>Anthropic processes data under commercial terms that bar it from training models on that data.</li>
+      </ul>
+      <p><strong>Incidents.</strong> If a breach affects your data, we will tell you without undue delay. Where UK GDPR requires it, we will notify the ICO within 72 hours.</p>
+
       <h2>Third parties</h2>
       <p>We use Google Analytics (operated by Google LLC) on this marketing site. For the Shopify app and the client portal, we use Supabase (storage and database), Vercel (hosting), Shopify (app billing), Anthropic (AI analysis and writing), and ElevenLabs (voiced presentations). A current subprocessor list is available on request.</p>
 
