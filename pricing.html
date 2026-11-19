@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing &middot; The Passo Agency</title>
-  <meta name="description" content="Pricing for The Passo Agency is finalised at Shopify App Store launch. A subscription plus a prepaid media balance, with no hidden fees." />
+  <meta name="description" content="Start with a free health check of your Google Ads and Meta accounts. Then choose Basics or Advanced for a flat monthly fee, with 10% off when you pay yearly." />
 
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 160' fill='none'%3E%3Cg transform='translate(16,24)'%3E%3Cline x1='120' y1='8' x2='120' y2='18' stroke='%23E5326A' stroke-width='3'/%3E%3Cpath d='M 0 110 C 14 109, 22 108, 32 106 C 46 103, 60 99, 72 92 C 86 84, 96 70, 104 56 C 112 42, 116 30, 120 18 L 124 30 C 130 46, 138 64, 148 80 C 156 92, 162 100, 168 110' stroke='%231A1A18' stroke-width='6' stroke-linejoin='miter' stroke-linecap='butt' fill='none'/%3E%3Cline x1='0' y1='110' x2='168' y2='110' stroke='%231A1A18' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E" />
 
@@ -41,34 +41,240 @@
       <a href="/">passoagency.com</a><span class="sep">/</span><span>Pricing</span>
     </div>
 
-    <header class="hero hero-interior">
+    <header class="hero hero-interior price-hero">
       <div class="eyebrow">Pricing</div>
-      <h1>Start free, then pay monthly. <em>No hidden fees.</em></h1>
-      <p class="hero-sub">Plans bought in the Shopify app are billed by Shopify on your Shopify invoice. You can change or cancel your plan in the app at any time.</p>
+      <h1>Start with a free health check. <em>Then choose how much we do.</em></h1>
+      <p class="hero-sub">Every plan is a flat monthly fee. You pay Google and Meta for your ads directly and we never take a share of your ad spend.</p>
+
+      <div class="billing" role="group" aria-label="Billing period">
+        <button type="button" class="billing-opt" data-period="monthly" aria-pressed="true">Monthly</button>
+        <button type="button" class="billing-opt" data-period="yearly" aria-pressed="false">Yearly <span class="billing-save">Save 10%</span></button>
+      </div>
     </header>
 
-    <section class="shape">
-      <div class="eyebrow">Plans</div>
-      <h2>Start with the Free check in the Shopify app.</h2>
-      <dl class="shape-list">
-        <div class="shape-row">
-          <dt>Free check, free</dt>
-          <dd>A health check of your Google Ads account, checked against your Shopify sales, with the top fixes first.</dd>
+    <section class="plans" aria-label="Plans">
+
+      <article class="plan">
+        <div class="plan-head">
+          <h2 class="plan-name">Health check</h2>
+          <span class="tag">Invite only</span>
         </div>
-        <div class="shape-row">
-          <dt>Basics, coming soon</dt>
-          <dd>Everything in the Free check, plus a monthly report, your top recommendations each month and alerts. You make the changes.</dd>
+        <p class="plan-for">Every finding in your Google Ads and Meta accounts, each with the action to take.</p>
+        <div class="plan-price">
+          <span class="price-num">Free</span>
         </div>
-        <div class="shape-row">
-          <dt>Advanced, by quote</dt>
-          <dd>Everything in Basics, and we make the changes you approve, with tests and a monthly call. Not in the Shopify app yet; <a href="mailto:hello@passoagency.com">email us</a> to start.</dd>
+        <p class="price-note">One check, ready within 3 working days of access.</p>
+        <a class="btn-secondary plan-cta" href="mailto:hello@passoagency.com?subject=Health%20check%20invite">Ask for an invite</a>
+        <ul class="plan-list">
+          <li>Read-only access to Google Ads and Meta</li>
+          <li>Every finding with the action to take</li>
+          <li>What to do first, by when and by whom</li>
+          <li>Our view on recent platform changes that affect you</li>
+          <li>Ask us to fix any finding for you</li>
+          <li>A link to send to whoever runs your ads</li>
+        </ul>
+      </article>
+
+      <article class="plan plan-main">
+        <div class="plan-head">
+          <h2 class="plan-name">Basics</h2>
+          <span class="tag">Coming soon</span>
         </div>
-      </dl>
+        <p class="plan-for">For brands spending under £50,000 a month on ads who make the changes themselves.</p>
+        <div class="plan-price">
+          <span class="price-num" data-monthly="$129" data-yearly="$116">$129</span>
+          <span class="price-unit">a month</span>
+        </div>
+        <p class="price-note" data-monthly="Billed monthly. Cancel any time." data-yearly="Billed yearly at $1,393.">Billed monthly. Cancel any time.</p>
+        <a class="btn-primary plan-cta" href="/coming-soon.html">Join the waitlist</a>
+        <ul class="plan-list">
+          <li>Everything in the health check</li>
+          <li>Google Ads, Merchant Center and Meta, with more channels as add-ons</li>
+          <li>Connect Shopify, GA4, Klaviyo and any other source</li>
+          <li>A monthly report with a full recheck of your accounts</li>
+          <li>Your current performance, always up to date</li>
+          <li>A limited number of full recommendations each month</li>
+          <li>Alerts when something changes</li>
+          <li>Creative analysis: best and worst ads, fatigue and gaps</li>
+        </ul>
+      </article>
+
+      <article class="plan">
+        <div class="plan-head">
+          <h2 class="plan-name">Advanced</h2>
+          <span class="tag">By application</span>
+        </div>
+        <p class="plan-for">For brands spending £20,000 a month or more who want us to make the changes.</p>
+        <div class="plan-price">
+          <span class="price-from">From</span>
+          <span class="price-num" data-monthly="$1,290" data-yearly="$1,161">$1,290</span>
+          <span class="price-unit">a month</span>
+        </div>
+        <p class="price-note" data-monthly="Set by your monthly ad spend. Three months minimum." data-yearly="Set by your monthly ad spend. Billed yearly from $13,932.">Set by your monthly ad spend. Three months minimum.</p>
+        <a class="btn-secondary plan-cta" href="mailto:hello@passoagency.com?subject=Advanced">Talk to us</a>
+        <ul class="plan-list">
+          <li>Everything in Basics</li>
+          <li>We make the changes and you approve each one</li>
+          <li>Every channel we support</li>
+          <li>Unlimited recommendations</li>
+          <li>Tests designed and run for you, holdouts included</li>
+          <li>Creative concepts and briefs</li>
+          <li>Customer value sent back to Google and Meta</li>
+          <li>The value we delivered, set against our fee</li>
+        </ul>
+      </article>
+
+    </section>
+
+    <section class="enterprise">
+      <div>
+        <div class="eyebrow">Enterprise</div>
+        <h2>Larger brands get a plan priced for them.</h2>
+        <p>For brands spending over £200,000 a month, running several brands or markets, or needing custom integrations. Includes a named manager and agreed service levels.</p>
+      </div>
+      <a class="btn-secondary" href="mailto:hello@passoagency.com?subject=Enterprise">Talk to us</a>
+    </section>
+
+    <section class="section compare">
+      <details class="compare-box">
+        <summary>
+          <span class="compare-title">Compare every plan</span>
+          <span class="compare-toggle" aria-hidden="true">Show the breakdown</span>
+        </summary>
+        <div class="table-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th scope="col">What you get</th>
+                <th scope="col">Health check</th>
+                <th scope="col">Basics</th>
+                <th scope="col">Advanced</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group"><th scope="colgroup" colspan="4">Price and terms</th></tr>
+              <tr><th scope="row">Monthly price</th><td>Free</td><td>$129</td><td>From $1,290</td></tr>
+              <tr><th scope="row">Yearly price, per month</th><td>Free</td><td>$116</td><td>From $1,161</td></tr>
+              <tr><th scope="row">Term</th><td>One check</td><td>Monthly or yearly</td><td>Three months minimum</td></tr>
+              <tr><th scope="row">Monthly ad spend</th><td>Any</td><td>Under £50,000</td><td>£20,000 and over</td></tr>
+              <tr><th scope="row">Who makes the changes</th><td>You</td><td>You</td><td>We do, with your approval</td></tr>
+
+              <tr class="group"><th scope="colgroup" colspan="4">Channels and data</th></tr>
+              <tr><th scope="row">Google Ads and Meta</th><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Merchant Center</th><td class="no">No</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Other channels</th><td class="no">No</td><td>As add-ons</td><td>Included</td></tr>
+              <tr><th scope="row">Shopify, GA4, Klaviyo and more</th><td class="no">No</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Customer value sent to Google and Meta</th><td class="no">No</td><td class="no">No</td><td>Yes</td></tr>
+
+              <tr class="group"><th scope="colgroup" colspan="4">Advice</th></tr>
+              <tr><th scope="row">Health check</th><td>Once</td><td>At the start, then rechecked monthly</td><td>At the start, then rechecked monthly</td></tr>
+              <tr><th scope="row">Recommendations</th><td>Every finding, once</td><td>Limited each month</td><td>Unlimited</td></tr>
+              <tr><th scope="row">Monthly report</th><td class="no">No</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Current performance</th><td class="no">No</td><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Alerts</th><td class="no">No</td><td>Yes</td><td>Yes, and acted on</td></tr>
+              <tr><th scope="row">Our view on platform changes</th><td>On your findings</td><td>Weekly</td><td>Weekly</td></tr>
+
+              <tr class="group"><th scope="colgroup" colspan="4">Creative and testing</th></tr>
+              <tr><th scope="row">Creative</th><td>Findings from Meta</td><td>Analysis of what works</td><td>Concepts and briefs</td></tr>
+              <tr><th scope="row">Tests and holdouts</th><td class="no">No</td><td class="no">No</td><td>Yes</td></tr>
+              <tr><th scope="row">Value we deliver, against our fee</th><td>Saving at stake</td><td>Proposed</td><td>Proposed and delivered</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
     </section>
 
     <section class="section">
-      <p class="lede" style="max-width: 720px;">Basics will be billed by Shopify in US dollars once it opens in the app. Prices do not include your advertising spend, which you pay to Google or Meta directly. Advanced and work outside Shopify are invoiced directly.</p>
+      <div class="eyebrow">How we work</div>
+      <h2 class="section-title">Every plan works the same way.</h2>
+      <div class="principles">
+        <div class="principle">
+          <h3>We show our working</h3>
+          <p>Every recommendation comes with its reason, the effect we expect and how we will check it.</p>
+        </div>
+        <div class="principle">
+          <h3>Your Shopify numbers come first</h3>
+          <p>We judge results on your sales and your own data before the numbers ad platforms report.</p>
+        </div>
+        <div class="principle">
+          <h3>We tell you when to change nothing</h3>
+          <p>If an account is in good shape we say so. The diagnosis is never held back on any plan.</p>
+        </div>
+        <div class="principle">
+          <h3>You see what we are worth</h3>
+          <p>Every report shows the extra revenue and savings from our recommendations next to what you pay us.</p>
+        </div>
+      </div>
     </section>
+
+    <section class="section trust">
+      <div class="trust-grid">
+        <div>
+          <div class="eyebrow">On every plan</div>
+          <h3>No seat limits</h3>
+          <p>Invite your whole team and your agency at no extra cost.</p>
+        </div>
+        <div>
+          <div class="eyebrow">On every plan</div>
+          <h3>Leave whenever you like</h3>
+          <p>Disconnect any account at any time. We delete what we hold for you within 30 days.</p>
+        </div>
+        <div>
+          <div class="eyebrow">On every plan</div>
+          <h3>Stored in Ireland</h3>
+          <p>Your data sits in an encrypted database in the EU. <a href="/data-privacy.html">How we handle your data</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="eyebrow">Questions</div>
+      <h2 class="section-title">What people ask before they start.</h2>
+      <div class="faq-list">
+        <details>
+          <summary>How do I get a health check?</summary>
+          <p>The health check is free and by invite for now. <a href="mailto:hello@passoagency.com?subject=Health%20check%20invite">Email us</a> and we will send you a code. You give us read-only access to Google Ads and Meta and the check is ready within 3 working days.</p>
+        </details>
+        <details>
+          <summary>What access do you need?</summary>
+          <p>The health check and Basics only read your accounts. Advanced asks for permission to make changes and you approve each one before it goes live.</p>
+        </details>
+        <details>
+          <summary>How am I billed?</summary>
+          <p>Basics is billed by Shopify in US dollars on your Shopify invoice. Shopify shows UK merchants an estimate in pounds. Advanced and Enterprise are invoiced by us directly. All prices exclude VAT.</p>
+        </details>
+        <details>
+          <summary>How does yearly billing work?</summary>
+          <p>Pay for the year upfront and save 10% on the monthly price. A yearly plan runs for the full year.</p>
+        </details>
+        <details>
+          <summary>Do you take a percentage of my ad spend?</summary>
+          <p>No. Every plan is a flat fee. The Advanced fee is set by the band your monthly ad spend sits in.</p>
+        </details>
+        <details>
+          <summary>Can I cancel?</summary>
+          <p>Basics on monthly billing can be cancelled at any time in the Shopify app. Advanced has a three month minimum, then runs monthly.</p>
+        </details>
+        <details>
+          <summary>Does creative production cost extra?</summary>
+          <p>Yes. Concepts and briefs are part of Advanced. Images and video are billed per piece, and creator costs are passed on at cost.</p>
+        </details>
+        <details>
+          <summary>When does Basics open?</summary>
+          <p>Soon. <a href="/coming-soon.html">Join the waitlist</a> and we will tell you when it opens in the Shopify app.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div>
+        <h2>Find out what your ad accounts are costing you.</h2>
+        <p>Ask for an invite and we will send a code for your free health check.</p>
+      </div>
+      <a class="btn-primary" href="mailto:hello@passoagency.com?subject=Health%20check%20invite">Ask for an invite</a>
+    </section>
+
+    <p class="fineprint price-fine">Prices exclude VAT and your advertising spend, which you pay to Google or Meta directly.</p>
 
     <footer class="site-foot">
       <div class="foot-grid">
@@ -110,5 +316,20 @@
     </footer>
 
   </div>
+
+  <script>
+    (function () {
+      var opts = document.querySelectorAll('.billing-opt');
+      function setPeriod(period) {
+        opts.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.period === period)); });
+        document.querySelectorAll('[data-monthly]').forEach(function (el) {
+          el.textContent = el.dataset[period];
+        });
+      }
+      opts.forEach(function (b) {
+        b.addEventListener('click', function () { setPeriod(b.dataset.period); });
+      });
+    })();
+  </script>
 </body>
 </html>
