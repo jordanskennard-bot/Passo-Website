@@ -598,6 +598,49 @@ article li { margin-bottom: 6px; }
   color: var(--ink-body);
 }
 
+/* ─── Pricing page ─────────────────────────────────────────────────────── */
+/* Follows the client design rules in passo-prospects: no eyebrows, capitals,
+   pills, boxes or dividers. Spacing and type do the work. */
+
+.pr { padding: 72px 0 24px; }
+.pr h1 { max-width: 860px; margin-bottom: 20px; }
+.pr-lede { font-size: 19px; max-width: 640px; margin: 0; }
+
+.pr-plans {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 80px;
+  margin-top: 72px;
+  align-items: start;
+}
+
+.pr-plan h2 { font-size: 30px; margin-bottom: 14px; }
+.pr-price { font-family: var(--font-display); font-size: 24px; line-height: 1.2; color: var(--ink-primary); margin: 0 0 6px; }
+.pr-sub { font-size: 14px; color: var(--ink-secondary); margin: 0 0 24px; }
+.pr-plan p { max-width: 460px; }
+.pr-list { list-style: none; padding: 0; margin: 24px 0 28px; max-width: 460px; }
+.pr-list li { font-size: 15px; line-height: 1.5; color: var(--ink-body); margin-bottom: 12px; }
+.pr-btn { border-radius: var(--r-2); }
+.pr a { color: var(--ink-primary); text-underline-offset: 2px; }
+.pr a.pr-btn { color: var(--paper-bg); }
+
+.term { border-bottom: 1px dotted var(--ink-secondary); cursor: help; }
+
+.pr-note { margin: 72px 0 0; max-width: 640px; }
+
+.pr-fold { margin-top: 72px; max-width: 720px; }
+.pr-fold h2 { font-size: 30px; margin-bottom: 20px; }
+.pr-fold summary { cursor: pointer; padding: 8px 0; font-size: 16px; color: var(--ink-primary); }
+.pr-fold details p { margin: 4px 0 16px 18px; font-size: 15px; }
+.pr-terms { margin: 8px 0 0 18px; }
+.pr-terms dt { font-weight: 500; color: var(--ink-primary); font-size: 15px; }
+.pr-terms dd { margin: 0 0 14px; font-size: 15px; color: var(--ink-body); }
+
+@media (max-width: 880px) {
+  .pr { padding-top: 40px; }
+  .pr-plans { grid-template-columns: 1fr; gap: 56px; margin-top: 48px; }
+}
+
 /* ─── Coming-soon frame ────────────────────────────────────────────────── */
 
 .coming-frame {
