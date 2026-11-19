@@ -599,159 +599,46 @@ article li { margin-bottom: 6px; }
 }
 
 /* ─── Pricing page ─────────────────────────────────────────────────────── */
+/* Follows the client design rules in passo-prospects: no eyebrows, capitals,
+   pills, boxes or dividers. Spacing and type do the work. */
 
-.price-hero { border-bottom: none; padding-bottom: 32px; }
+.pr { padding: 72px 0 24px; }
+.pr h1 { max-width: 860px; margin-bottom: 20px; }
+.pr-lede { font-size: 19px; max-width: 640px; margin: 0; }
 
-.billing {
-  display: inline-flex;
-  border: 1px solid var(--ink-primary);
-  border-radius: var(--r-pill);
-  padding: 3px;
-  gap: 2px;
-}
-
-.billing-opt {
-  min-height: 40px;
-  padding: 8px 18px;
-  border: 0;
-  border-radius: var(--r-pill);
-  background: transparent;
-  color: var(--ink-primary);
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.billing-opt[aria-pressed="true"] { background: var(--ink-primary); color: var(--paper-bg); }
-.billing-save { font-size: 12px; opacity: 0.8; margin-left: 4px; }
-
-.plans {
+.pr-plans {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--paper-rule);
-  border-bottom: 1px solid var(--paper-rule);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 80px;
+  margin-top: 72px;
+  align-items: start;
 }
 
-.plan {
-  padding: 36px 32px 40px;
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid var(--paper-rule);
-}
+.pr-plan h2 { font-size: 30px; margin-bottom: 14px; }
+.pr-price { font-family: var(--font-display); font-size: 24px; line-height: 1.2; color: var(--ink-primary); margin: 0 0 6px; }
+.pr-sub { font-size: 14px; color: var(--ink-secondary); margin: 0 0 24px; }
+.pr-plan p { max-width: 460px; }
+.pr-list { list-style: none; padding: 0; margin: 24px 0 28px; max-width: 460px; }
+.pr-list li { font-size: 15px; line-height: 1.5; color: var(--ink-body); margin-bottom: 12px; }
+.pr-btn { border-radius: var(--r-2); }
+.pr a { color: var(--ink-primary); text-underline-offset: 2px; }
+.pr a.pr-btn { color: var(--paper-bg); }
 
-.plan:first-child { padding-left: 0; }
-.plan:last-child { border-right: none; padding-right: 0; }
-.plan-main { background: var(--paper-sunken); border-top: 2px solid var(--ink-primary); margin-top: -1px; }
-.plan-main:first-child, .plan-main:last-child { padding-left: 32px; padding-right: 32px; }
+.term { border-bottom: 1px dotted var(--ink-secondary); cursor: help; }
 
-.plan-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
-.plan-name { font-size: 28px; }
-.plan-for { font-size: 15px; color: var(--ink-body); min-height: 72px; }
+.pr-note { margin: 72px 0 0; max-width: 640px; }
 
-.plan-price { display: flex; align-items: baseline; gap: 8px; margin-top: 8px; }
-.price-num { font-family: var(--font-display); font-size: 52px; line-height: 1; letter-spacing: -0.02em; color: var(--ink-primary); }
-.price-from, .price-unit { font-size: 14px; color: var(--ink-secondary); }
-.price-note { font-size: 13px; color: var(--ink-secondary); margin: 10px 0 24px; min-height: 40px; }
-
-.plan-cta { justify-content: center; margin-bottom: 28px; }
-
-.plan-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--paper-rule); }
-.plan-list li { padding: 11px 0; font-size: 14px; line-height: 1.5; color: var(--ink-body); border-bottom: 1px solid var(--paper-rule); }
-.plan-list li:first-child { color: var(--ink-primary); font-weight: 500; }
-
-.enterprise {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 48px 0;
-  border-bottom: 1px solid var(--paper-rule);
-}
-
-.enterprise > div { flex: 1 1 520px; }
-.enterprise h2 { font-size: 30px; margin-bottom: 10px; }
-.enterprise p { margin: 0; max-width: 640px; }
-
-.compare { padding: 48px 0; }
-.compare-box summary {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  cursor: pointer;
-  list-style: none;
-  min-height: 44px;
-}
-.compare-box summary::-webkit-details-marker { display: none; }
-.compare-title { font-family: var(--font-display); font-size: 30px; letter-spacing: -0.015em; }
-.compare-toggle { font-size: 14px; font-weight: 500; border-bottom: 1px solid var(--ink-primary); }
-.compare-box[open] .compare-toggle { visibility: hidden; }
-.compare-box[open] .compare-toggle::after { content: 'Hide the breakdown'; visibility: visible; margin-left: -9.5em; }
-
-.table-wrap { overflow-x: auto; margin-top: 28px; }
-.compare-table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 14px; }
-.compare-table th, .compare-table td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--paper-rule); vertical-align: top; }
-.compare-table thead th { font-family: var(--font-display); font-weight: 500; font-size: 18px; color: var(--ink-primary); border-bottom: 1px solid var(--ink-primary); }
-.compare-table thead th:first-child { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-label); }
-.compare-table tbody th { font-weight: 500; color: var(--ink-primary); width: 32%; }
-.compare-table td { color: var(--ink-body); }
-.compare-table td.no { color: var(--ink-label); }
-.compare-table tr.group th { padding-top: 28px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-label); background: transparent; }
-
-.section-title { margin-bottom: 32px; }
-
-.principles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
-.trust { padding: 48px 0; }
-.trust-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
-.trust-grid .eyebrow { margin-bottom: 8px; }
-.trust-grid h3 { margin-bottom: 8px; }
-.trust-grid p { font-size: 15px; margin: 0; }
-.trust-grid a { color: var(--ink-primary); }
-.principle { border-top: 1px solid var(--ink-primary); padding-top: 18px; }
-.principle h3 { margin-bottom: 10px; }
-.principle p { font-size: 15px; margin: 0; }
-
-.faq-list { max-width: 820px; border-top: 1px solid var(--paper-rule); }
-.faq-list details { border-bottom: 1px solid var(--paper-rule); }
-.faq-list summary {
-  cursor: pointer;
-  list-style: none;
-  padding: 18px 32px 18px 0;
-  font-family: var(--font-display);
-  font-size: 20px;
-  color: var(--ink-primary);
-  position: relative;
-}
-.faq-list summary::-webkit-details-marker { display: none; }
-.faq-list summary::after { content: '+'; position: absolute; right: 0; top: 16px; font-family: var(--font-body); font-weight: 400; color: var(--ink-secondary); }
-.faq-list details[open] summary::after { content: '\2212'; }
-.faq-list p { max-width: 680px; font-size: 15px; padding-bottom: 8px; }
-.faq-list a { color: var(--ink-primary); }
-
-.cta-band {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  margin-top: 56px;
-  padding: 48px;
-  background: var(--paper-card);
-  border: 1px solid var(--paper-rule);
-}
-.cta-band > div { flex: 1 1 480px; }
-.cta-band h2 { font-size: 34px; margin-bottom: 10px; }
-.cta-band p { margin: 0; }
-.price-fine { margin: 20px 0 0; }
+.pr-fold { margin-top: 72px; max-width: 720px; }
+.pr-fold h2 { font-size: 30px; margin-bottom: 20px; }
+.pr-fold summary { cursor: pointer; padding: 8px 0; font-size: 16px; color: var(--ink-primary); }
+.pr-fold details p { margin: 4px 0 16px 18px; font-size: 15px; }
+.pr-terms { margin: 8px 0 0 18px; }
+.pr-terms dt { font-weight: 500; color: var(--ink-primary); font-size: 15px; }
+.pr-terms dd { margin: 0 0 14px; font-size: 15px; color: var(--ink-body); }
 
 @media (max-width: 880px) {
-  .plans, .principles, .trust-grid { grid-template-columns: 1fr; }
-  .plan, .plan:first-child, .plan:last-child { padding: 32px 0; border-right: none; border-bottom: 1px solid var(--paper-rule); }
-  .plan-main, .plan-main:first-child, .plan-main:last-child { padding: 32px 20px; }
-  .plan-for, .price-note { min-height: 0; }
-  .cta-band { padding: 32px 24px; }
+  .pr { padding-top: 40px; }
+  .pr-plans { grid-template-columns: 1fr; gap: 56px; margin-top: 48px; }
 }
 
 /* ─── Coming-soon frame ────────────────────────────────────────────────── */
