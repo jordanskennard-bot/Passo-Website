@@ -725,3 +725,30 @@ footer.site-foot {
   .foot-grid { grid-template-columns: 1fr; }
   .nav-cta { display: none; }
 }
+
+/* ─── Plain pages (home, how it works, consulting, about, waitlist) ─────── */
+
+.pg-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin: 32px 0 0; }
+.pg-section { margin-top: 80px; }
+.pg-section > h2 { font-size: 34px; max-width: 760px; margin-bottom: 18px; }
+.pg-text { font-size: 17px; max-width: 680px; }
+.pg-prose p { font-size: 18px; max-width: 680px; margin-bottom: 20px; }
+.pg-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 64px; max-width: 1000px; }
+.pg-grid h3 { margin-bottom: 8px; }
+.pg-grid p { font-size: 15px; margin: 0; }
+.pg-plans { margin: 0 0 20px; max-width: 760px; }
+.pg-plans > div { margin-bottom: 20px; }
+.pg-plans dt { font-family: var(--font-display); font-size: 22px; color: var(--ink-primary); margin-bottom: 4px; }
+.pg-plans dd { margin: 0; font-size: 16px; color: var(--ink-body); }
+.pg-steps { list-style: decimal; padding-left: 28px; margin: 64px 0 0; max-width: 720px; }
+.pg-steps li { margin-bottom: 44px; padding-left: 8px; }
+.pg-steps li::marker { font-family: var(--font-display); font-size: 22px; color: var(--ink-secondary); }
+.pg-steps h2 { font-size: 26px; margin-bottom: 10px; }
+.pg-steps p { font-size: 16px; }
+.pg .pr-list { margin-top: 8px; }
+
+@media (max-width: 880px) {
+  .pg-grid { grid-template-columns: 1fr; gap: 28px; }
+  .pg-section { margin-top: 56px; }
+  .pg-section > h2 { font-size: 28px; }
+}
