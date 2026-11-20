@@ -110,6 +110,20 @@
       </ul>
       <p>We may send extracts of this data to the AI providers listed under third parties, to help write analysis for that client. Those providers act as our processors and may not use the data to train their models.</p>
 
+      <h2>How we protect your data</h2>
+      <p>These protections apply to all data we hold for the Shopify app and the client portal, including Google user data.</p>
+      <ul>
+        <li><strong>Encryption in transit:</strong> every connection to our sites, to Google and other platform APIs, and between our servers and our database uses HTTPS with TLS 1.2 or higher.</li>
+        <li><strong>Encryption at rest:</strong> our database and its backups are encrypted at rest (AES-256).</li>
+        <li><strong>Access tokens:</strong> each token a client grants us is encrypted with AES-256-GCM before it is stored, so the database holds only ciphertext. The encryption key is held as a secret in our hosting environment, separate from the database. Tokens are never sent to a browser, never written to logs and never shown to Passo staff.</li>
+        <li><strong>Secure sign-in to connect an account:</strong> each connection request is signed and tied to the browser and the person who started it, so a copied or intercepted link cannot be used to connect an account.</li>
+        <li><strong>Access controls:</strong> clients sign in to the portal with an invited email address and a password, and see only their own business&rsquo;s data. Database rules enforce this separation, not just the website. Inside Passo, access is limited to named staff working on that client&rsquo;s account, on an allow-list.</li>
+        <li><strong>Least privilege:</strong> we ask for read access only and use it only to review accounts and report. We do not change a connected account unless the client has instructed us to in writing.</li>
+        <li><strong>Secrets and keys:</strong> API keys, client secrets and encryption keys are stored as encrypted environment secrets, never in our code, and are rotated if we suspect they have been exposed.</li>
+        <li><strong>Trusted providers:</strong> our database (Supabase) and hosting (Vercel) providers are independently audited to SOC 2 Type II.</li>
+        <li><strong>Incidents:</strong> if a breach affects your data, we will tell you without undue delay and report it to the ICO within 72 hours where the law requires.</li>
+      </ul>
+
       <h2>Legal basis</h2>
       <p>Analytics cookies on this marketing site are processed on the basis of your consent (UK GDPR Art. 6(1)(a)). You can withdraw consent at any time by clearing your browser&rsquo;s local storage for this site. Waitlist emails are processed on the basis of your consent to be contacted about the launch. Inside the Shopify app and the client portal, processing of client, merchant and customer data is performed on the basis of the client&rsquo;s contractual instruction to us.</p>
 
@@ -161,7 +175,7 @@
       </ul>
       <p>To exercise any of these rights, email <a href="mailto:hello@passoagency.com">hello@passoagency.com</a>.</p>
 
-      <p class="updated">Last updated: November 2026.</p>
+      <p class="updated">Last updated: 16 November 2026.</p>
     </article>
 
     <footer class="site-foot">
