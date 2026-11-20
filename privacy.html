@@ -83,7 +83,7 @@
       <ul>
         <li><strong>Analytics cookies</strong> via Google Analytics 4. These record pages visited, time on page, and approximate location at country or city level. No personally identifiable information is collected.</li>
       </ul>
-      <p>If you submit your email address to join our waitlist, we store that address solely to notify you when we launch. We do not share it with third parties or use it for any other purpose.</p>
+      <p>If you join our waitlist, we store your email address and anything else you choose to give us (your business name, website and monthly ad spend) in our database in Ireland. We use it only to tell you when Basics opens and to understand who is waiting. We do not share it with third parties or use it for any other purpose.</p>
 
       <h2>What we collect inside the Shopify app</h2>
       <p>When a Shopify merchant installs the Passo app, we read the store&rsquo;s orders, products and shop details through the Shopify Admin API, under the access scopes the merchant approves at install. We use order data to compare what advertising platforms report with the store&rsquo;s actual sales. We do not collect the names, email addresses, phone numbers or postal addresses of the store&rsquo;s customers. With the merchant&rsquo;s explicit instruction, given by signing in with each platform, we also connect to Google Ads, Google Merchant Center, Google Analytics and Meta on a read-only basis. App charges are billed by Shopify on the merchant&rsquo;s Shopify invoice; we never see or store card details. The full breakdown of what we read from each source, why, and how it is protected is published on our <a href="/data-privacy.html">data &amp; privacy</a> page.</p>
@@ -110,25 +110,17 @@
       </ul>
       <p>We may send extracts of this data to the AI providers listed under third parties, to help write analysis for that client. Those providers act as our processors and may not use the data to train their models.</p>
 
-      <h2>How we protect your data</h2>
-      <p>These protections apply to all data we hold for the Shopify app and the client portal, including Google user data.</p>
-      <ul>
-        <li><strong>Encryption in transit:</strong> every connection to our sites, to Google and other platform APIs, and between our servers and our database uses HTTPS with TLS 1.2 or higher.</li>
-        <li><strong>Encryption at rest:</strong> our database and its backups are encrypted at rest (AES-256).</li>
-        <li><strong>Access tokens:</strong> each token a client grants us is encrypted with AES-256-GCM before it is stored, so the database holds only ciphertext. The encryption key is held as a secret in our hosting environment, separate from the database. Tokens are never sent to a browser, never written to logs and never shown to Passo staff.</li>
-        <li><strong>Secure sign-in to connect an account:</strong> each connection request is signed and tied to the browser and the person who started it, so a copied or intercepted link cannot be used to connect an account.</li>
-        <li><strong>Access controls:</strong> clients sign in to the portal with an invited email address and a password, and see only their own business&rsquo;s data. Database rules enforce this separation, not just the website. Inside Passo, access is limited to named staff working on that client&rsquo;s account, on an allow-list.</li>
-        <li><strong>Least privilege:</strong> we ask for read access only and use it only to review accounts and report. We do not change a connected account unless the client has instructed us to in writing.</li>
-        <li><strong>Secrets and keys:</strong> API keys, client secrets and encryption keys are stored as encrypted environment secrets, never in our code, and are rotated if we suspect they have been exposed.</li>
-        <li><strong>Trusted providers:</strong> our database (Supabase) and hosting (Vercel) providers are independently audited to SOC 2 Type II.</li>
-        <li><strong>Incidents:</strong> if a breach affects your data, we will tell you without undue delay and report it to the ICO within 72 hours where the law requires.</li>
-      </ul>
+      <h2>Leaving and deleting your data</h2>
+      <p>You can leave whenever you like. Cancel your plan, disconnect any account from the client portal or the platform&rsquo;s own settings, or email <a href="mailto:hello@passoagency.com">hello@passoagency.com</a> and ask us to delete everything we hold about your business. We delete access tokens immediately and all other data within 30 days, including backups. Our <a href="/data-deletion.html">data deletion page</a> explains each route.</p>
+
+      <h2>Who we work for</h2>
+      <p>We work for our clients and take no money from Google, Meta or any other ad platform. We never sell client data and never share one client&rsquo;s data with another.</p>
 
       <h2>Legal basis</h2>
       <p>Analytics cookies on this marketing site are processed on the basis of your consent (UK GDPR Art. 6(1)(a)). You can withdraw consent at any time by clearing your browser&rsquo;s local storage for this site. Waitlist emails are processed on the basis of your consent to be contacted about the launch. Inside the Shopify app and the client portal, processing of client, merchant and customer data is performed on the basis of the client&rsquo;s contractual instruction to us.</p>
 
       <h2>How long we keep it</h2>
-      <p>Google Analytics retains data for 14 months by default. Waitlist email addresses are deleted on request, and in any case once the platform has launched and you have either installed the app or unsubscribed. Inside the Shopify app, store data is kept while the app is installed. Access tokens are deleted immediately on disconnect or uninstall. If a merchant uninstalls the app, we delete their store data within 30 days of Shopify&rsquo;s deletion request, including encrypted backups. Requests from a store&rsquo;s customers to see or delete their data, passed to us by Shopify, are completed within 30 days. When a client disconnects an account in the client portal, we delete its access token immediately and stop collecting data from it. When a client relationship ends, we delete the data collected from their connected accounts within 30 days, unless the client asks us to keep it or the law requires us to. We keep a de-identified record of the recommendations we make and their outcomes, with names, account identifiers and anything that could identify a client or person removed, to improve our service.</p>
+      <p>Google Analytics retains data for 14 months by default. Waitlist details are deleted on request, and in any case once Basics has opened and you have either signed up or told us you are not interested. Inside the Shopify app, store data is kept while the app is installed. Access tokens are deleted immediately on disconnect or uninstall. If a merchant uninstalls the app, we delete their store data within 30 days of Shopify&rsquo;s deletion request, including encrypted backups. Requests from a store&rsquo;s customers to see or delete their data, passed to us by Shopify, are completed within 30 days. When a client disconnects an account in the client portal, we delete its access token immediately and stop collecting data from it. When a client relationship ends, we delete the data collected from their connected accounts within 30 days, unless the client asks us to keep it or the law requires us to. We keep a de-identified record of the recommendations we make and their outcomes, with names, account identifiers and anything that could identify a client or person removed, to improve our service. No client&rsquo;s data, findings or figures are ever shared with another client.</p>
 
       <h2>Where the data lives</h2>
       <p>For the Shopify app and the client portal, all raw and derived data is stored in a Supabase-managed Postgres database in eu-west-1 (Ireland), encrypted at rest. Ireland is covered by the UK's adequacy regulations for the EEA, so no further transfer safeguard is needed for it. Application servers run on Vercel. Where a processor handles data outside the UK, the transfer is covered by the UK International Data Transfer Addendum or an adequacy decision. Marketing-site analytics are processed by Google in accordance with their privacy policy and may be transferred outside the UK or EEA under standard contractual clauses approved by the ICO.</p>
@@ -175,7 +167,7 @@
       </ul>
       <p>To exercise any of these rights, email <a href="mailto:hello@passoagency.com">hello@passoagency.com</a>.</p>
 
-      <p class="updated">Last updated: 16 November 2026.</p>
+      <p class="updated">Last updated: 20 November 2026.</p>
     </article>
 
     <footer class="site-foot">
