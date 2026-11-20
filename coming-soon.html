@@ -45,8 +45,31 @@
 
       <h1>Join the waitlist for Basics.</h1>
       <p class="pr-lede">Basics checks your Google and Meta accounts every month for £97 a month, and you make the changes. Join the list and we will email you the day it opens.</p>
-      <p class="pg-ctas"><a class="btn-primary pr-btn" href="mailto:hello@passoagency.com?subject=Basics%20waitlist&body=Business%20name%3A%0AWebsite%3A%0AMonthly%20ad%20spend%3A%0AChannels%20you%20advertise%20on%3A">Join the waitlist by email</a></p>
-      <p class="pg-text">Tell us your business name, website and monthly ad spend so we can let you know when Basics is ready for you.</p>
+
+      <form class="wl" id="waitlist" action="https://prospects.passoagency.com/api/waitlist" method="post">
+        <label for="wl-email">Work email</label>
+        <input id="wl-email" name="email" type="email" autocomplete="email" required />
+        <label for="wl-business">Business name</label>
+        <input id="wl-business" name="business" type="text" autocomplete="organization" />
+        <label for="wl-website">Website</label>
+        <input id="wl-website" name="website" type="text" inputmode="url" placeholder="yourstore.com" />
+        <label for="wl-spend">Monthly ad spend</label>
+        <select id="wl-spend" name="monthly_spend">
+          <option value="">Choose one</option>
+          <option value="under_5k">Under £5,000</option>
+          <option value="5k_20k">£5,000 to £20,000</option>
+          <option value="20k_50k">£20,000 to £50,000</option>
+          <option value="50k_250k">£50,000 to £250,000</option>
+          <option value="over_250k">Over £250,000</option>
+        </select>
+        <div class="wl-hidden" aria-hidden="true"><label for="wl-company-url">Leave this empty</label><input id="wl-company-url" name="company_url" type="text" tabindex="-1" autocomplete="off" /></div>
+        <p class="wl-note">We use your details only to tell you when Basics opens. See our <a href="/privacy.html">privacy policy</a>.</p>
+        <button class="btn-primary pr-btn" type="submit">Join the waitlist</button>
+        <p class="wl-status" id="wl-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="wl-done" id="joined">You are on the list. We will email you the day Basics opens.</p>
+      <p class="wl-done" id="not-joined">We could not save your details. Please try again or write to <a href="mailto:hello@passoagency.com">hello@passoagency.com</a>.</p>
 
       <section class="pg-section">
         <p class="pg-text">Already have a health check code? Use the link in the invite we sent you.</p>
@@ -54,6 +77,28 @@
       </section>
 
     </main>
+
+  <script>
+    (function () {
+      var form = document.getElementById('waitlist');
+      var status = document.getElementById('wl-status');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var button = form.querySelector('button');
+        button.disabled = true;
+        status.textContent = 'Saving';
+        var data = {};
+        new FormData(form).forEach(function (v, k) { data[k] = v; });
+        fetch(form.action, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(data) })
+          .then(function (r) { return r.json().then(function (j) { return r.ok && j.ok; }); })
+          .then(function (ok) {
+            if (ok) { form.hidden = true; document.getElementById('joined').classList.add('show'); }
+            else { status.textContent = 'Please check your email address and try again.'; button.disabled = false; }
+          })
+          .catch(function () { status.textContent = 'We could not save your details. Please try again.'; button.disabled = false; });
+      });
+    })();
+  </script>
 
     <footer class="site-foot">
       <div class="foot-grid">
