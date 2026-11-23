@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request a code | The Passo Agency</title>
+  <meta name="description" content="Request a code for a free health check of your Google and Meta ad accounts." />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 160' fill='none'%3E%3Cg transform='translate(16,24)'%3E%3Cline x1='120' y1='8' x2='120' y2='18' stroke='%23E5326A' stroke-width='3'/%3E%3Cpath d='M 0 110 C 14 109, 22 108, 32 106 C 46 103, 60 99, 72 92 C 86 84, 96 70, 104 56 C 112 42, 116 30, 120 18 L 124 30 C 130 46, 138 64, 148 80 C 156 92, 162 100, 168 110' stroke='%231A1A18' stroke-width='6' stroke-linejoin='miter' stroke-linecap='butt' fill='none'/%3E%3Cline x1='0' y1='110' x2='168' y2='110' stroke='%231A1A18' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+  <div class="page">
+
+    <nav class="nav">
+      <a class="brand" href="/" aria-label="The Passo Agency home">
+        <svg class="brand-mark" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g transform="translate(16,24)">
+            <line x1="120" y1="10" x2="120" y2="16" stroke="#E5326A" stroke-width="1.5"/>
+            <path d="M 0 110 C 14 109, 22 108, 32 106 C 46 103, 60 99, 72 92 C 86 84, 96 70, 104 56 C 112 42, 116 30, 120 18 L 124 30 C 130 46, 138 64, 148 80 C 156 92, 162 100, 168 110" stroke="#1A1A18" stroke-width="2.5" stroke-linejoin="miter" stroke-linecap="butt" fill="none"/>
+            <line x1="0" y1="110" x2="168" y2="110" stroke="#1A1A18" stroke-width="1"/>
+          </g>
+        </svg>
+        <span>The Passo Agency</span>
+      </a>
+      <div class="nav-links">
+        <a href="/how-it-works.html">How it works</a>
+        <a href="/consulting.html">Consulting</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/about.html">About</a>
+        <a href="/data-privacy.html">Data &amp; privacy</a>
+      </div>
+    </nav>
+
+    <div class="crumbs">
+      <a href="/">passoagency.com</a><span class="sep">/</span><span>Join the waitlist</span>
+    </div>
+
+    <main class="pr pg">
+
+      <h1>Request a health check code.</h1>
+      <p class="pr-lede">A code opens a free health check of your Google and Meta ad accounts: every issue we find, what to do about each one and the money involved. Tell us about your business and we will email you a code.</p>
+
+      <form class="wl" id="waitlist" action="https://prospects.passoagency.com/api/waitlist" method="post">
+        <input type="hidden" name="form" value="code_request" />
+        <label for="wl-email">Work email</label>
+        <input id="wl-email" name="email" type="email" autocomplete="email" required />
+        <label for="wl-business">Business name</label>
+        <input id="wl-business" name="business" type="text" autocomplete="organization" />
+        <label for="wl-website">Website</label>
+        <input id="wl-website" name="website" type="text" inputmode="url" placeholder="yourstore.com" />
+        <label for="wl-spend">Monthly ad spend</label>
+        <select id="wl-spend" name="monthly_spend">
+          <option value="">Choose one</option>
+          <option value="under_5k">Under £5,000</option>
+          <option value="5k_20k">£5,000 to £20,000</option>
+          <option value="20k_50k">£20,000 to £50,000</option>
+          <option value="50k_250k">£50,000 to £250,000</option>
+          <option value="over_250k">Over £250,000</option>
+        </select>
+        <div class="wl-hidden" aria-hidden="true"><label for="wl-company-url">Leave this empty</label><input id="wl-company-url" name="company_url" type="text" tabindex="-1" autocomplete="off" /></div>
+        <p class="wl-note">We use your details only to send your code and arrange your health check. See our <a href="/privacy.html">privacy policy</a>.</p>
+        <button class="btn-primary pr-btn" type="submit">Request a code</button>
+        <p class="wl-status" id="wl-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="wl-done" id="joined">Thank you. We will email you a code.</p>
+      <p class="wl-done" id="not-joined">We could not save your details. Please try again or write to <a href="mailto:hello@passoagency.com">hello@passoagency.com</a>.</p>
+
+      <section class="pg-section">
+        <p class="pg-text">Already have a code? <a href="https://clients.passoagency.com/invite">Start your health check</a>.</p>
+      </section>
+
+    </main>
+
+  <script>
+    (function () {
+      var form = document.getElementById('waitlist');
+      var status = document.getElementById('wl-status');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var button = form.querySelector('button');
+        button.disabled = true;
+        status.textContent = 'Saving';
+        var data = {};
+        new FormData(form).forEach(function (v, k) { data[k] = v; });
+        fetch(form.action, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(data) })
+          .then(function (r) { return r.json().then(function (j) { return r.ok && j.ok; }); })
+          .then(function (ok) {
+            if (ok) { form.hidden = true; document.getElementById('joined').classList.add('show'); }
+            else { status.textContent = 'Please check your email address and try again.'; button.disabled = false; }
+          })
+          .catch(function () { status.textContent = 'We could not save your details. Please try again.'; button.disabled = false; });
+      });
+    })();
+  </script>
+
+    <footer class="site-foot">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand">The Passo Agency</div>
+          <div>Passo Agency Ltd, registered in England and Wales (no. 17208051).</div>
+          <div style="margin-top: 8px;">5 Croftway, York, YO26 5LU, United Kingdom.</div>
+          <div style="margin-top: 8px;"><a href="mailto:hello@passoagency.com">hello@passoagency.com</a></div>
+        </div>
+        <div class="foot-col">
+          <h5>Passo</h5>
+          <ul>
+            <li><a href="/how-it-works.html">How it works</a></li>
+            <li><a href="/pricing.html">Pricing</a></li>
+            <li><a href="/consulting.html">Consulting</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Trust</h5>
+          <ul>
+            <li><a href="/data-privacy.html">Data &amp; privacy</a></li>
+            <li><a href="/privacy.html">Privacy policy</a></li>
+            <li><a href="/terms.html">Terms of service</a></li>
+            <li><a href="/data-deletion.html">Data deletion</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="mailto:hello@passoagency.com">Email us</a></li>
+            <li><a href="/coming-soon.html">Join the waitlist</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <div>&copy; 2026 Passo Agency Ltd</div>
+        <div>passoagency.com</div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
