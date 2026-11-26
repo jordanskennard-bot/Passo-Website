@@ -616,6 +616,8 @@ article li { margin-bottom: 6px; }
 .pr-btn { border-radius: var(--r-2); }
 .pr a { color: var(--ink-primary); text-underline-offset: 2px; }
 .pr a.pr-btn { color: var(--paper-bg); }
+.btn-rosa { background: var(--rosa); border-color: var(--rosa); }
+.pg-cta { margin: 0 0 32px; }
 
 .term { border-bottom: 1px dotted var(--ink-secondary); cursor: help; }
 
